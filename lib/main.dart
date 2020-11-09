@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dataflex_erp/src/pages/login_page.dart';
-import 'package:dataflex_erp/src/pages/home_page.dart';
+import 'package:dataflex_erp/src/widgets/custom_widgets.dart';
 
 void main() {
   runApp(MyApp());
