@@ -1,0 +1,27 @@
+import 'package:flutter/material.dart';
+import 'package:dataflex_erp/src/pages/login_page.dart';
+import 'package:dataflex_erp/src/pages/home_page.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Dataflex ERP',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        fontFamily: "Quicksand"
+      ),
+      initialRoute: 'login',
+      routes: {
+        'login'   :    ( BuildContext context ) => LoginPage(),
+        'home'  :   (BuildContext context ) => HomePage(),
+      },
+    );
+  }
+}
