@@ -8,21 +8,48 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Principal'),
       ),
-      body: Center(
-        child: RaisedButton(
-          child: Text("Comprar"),
-          onPressed: (){
-            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => OrdersPage()));
-          }
-        
-        ),
-      ),
-
       drawer: Drawer(
         child: Center(
           child: Text('Hola')
 
         ),
+      ),
+      body: ListView(
+        padding: EdgeInsets.all(32.0),
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              cardTipo1(),
+              cardTipo2(),
+            ],
+            )
+        ],
+      ),
+    );
+  }
+
+
+  Widget cardTipo1() {
+    return Card(
+      color: Colors.grey,
+      child: Column(
+        children: [
+          Icon(Icons.shopping_cart, size: 64.0,),
+          Text('Pedidos'),
+        ],
+      ),
+    );
+  }
+
+  Widget cardTipo2() {
+    return Card(
+      color: Colors.grey,
+      child: Column(
+        children: [
+          Icon(Icons.shopping_cart, size: 64.0,),
+          Text('Pedidos'),
+        ],
       ),
     );
   }
