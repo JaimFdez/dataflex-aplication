@@ -5,21 +5,21 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class MyApp extends StatelessWidget { 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Dataflex ERP',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: "Quicksand"
+      theme: ThemeData(        primarySwatch: Colors.blue, fontFamily: "Quicksand"
       ),
-      initialRoute: 'login',
+      initialRoute: 'onvoice',
       routes: {
         'login'   :    ( BuildContext context ) => LoginPage(),
         'home'  :   (BuildContext context ) => HomePage(),
+        'order'  :   (BuildContext context ) => OrdersPage(),
+        'onvoice'  :   (BuildContext context ) => OnvoiceListPage(),
+        // 'com' : (BuildContext context) => CheckPage(),
       },
     );
   }
