@@ -8,6 +8,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
 
   bool isRememberMe = false;
+  final primaryBrand = Color(0xff1C83CE);
+  final primaryText = Color(0xff434343);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 24.0),
                 forgotPassword(),
                 rememberMe(),
-                boton(),
+                buttonLogin(),
                 signupButton(),
               ],
             ),
@@ -56,28 +58,28 @@ class _LoginPageState extends State<LoginPage> {
         boxShadow: [
           BoxShadow(
             color: Colors.black26,
-            blurRadius: 6.0,
+            blurRadius: 4.0,
             offset: Offset(0,2)
           )
         ]
       ),
-      height: 56.0,
+      height: 64.0,
       child: TextField(
         keyboardType: TextInputType.emailAddress,
         style: TextStyle(
-          color: Colors.black87
+          color: primaryText,
+          fontWeight: FontWeight.bold
         ),
         decoration: InputDecoration(
           border: InputBorder.none,
           contentPadding: EdgeInsets.only(top: 14),
           prefixIcon: Icon(
             Icons.person_outline,
-            color: Color(0xff1C83CE),
+            color: primaryBrand,
           ),
-          hintText: 'Email',
+          hintText: 'Usuario',
           hintStyle: TextStyle(
-            color: Colors.black38,
-            fontWeight: FontWeight.bold,
+            color: Colors.black26,
             fontSize: 16.0
           ),
         ),
@@ -87,35 +89,35 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget inputPassword() {
     return Container(
-      alignment: Alignment.centerLeft,
+      alignment: Alignment.centerRight,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8.0),
         boxShadow: [
           BoxShadow(
             color: Colors.black26,
-            blurRadius: 6.0,
+            blurRadius: 4.0,
             offset: Offset(0,2)
           )
         ]
       ),
-      height: 56.0,
+      height: 64.0,
       child: TextField(
         obscureText: true,
         style: TextStyle(
-          color: Colors.black87
+          color: primaryText,
+          fontWeight: FontWeight.bold,
         ),
         decoration: InputDecoration(
           border: InputBorder.none,
           contentPadding: EdgeInsets.only(top: 14),
           prefixIcon: Icon(
             Icons.lock_outline,
-            color: Color(0xff1C83CE),
+            color: primaryBrand,
           ),
           hintText: 'Contraseña',
           hintStyle: TextStyle(
-            color: Colors.black38,
-            fontWeight: FontWeight.bold,
+            color: Colors.black26,
             fontSize: 16.0
           ),
         ),
@@ -132,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Text(
           '¿Olvidó su contraseña?',
           style: TextStyle(
-            color: Color(0xff1C83CE),
+            color: primaryBrand,
             fontSize: 14.0
           ),
         ),
@@ -147,8 +149,8 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Checkbox(
             value: isRememberMe, 
-            checkColor: Colors.blueAccent,
-            activeColor: Colors.white,
+            checkColor: Colors.white,
+            activeColor: primaryBrand,
             onChanged: (value) {
               setState(() {
                 isRememberMe = value;
@@ -158,7 +160,7 @@ class _LoginPageState extends State<LoginPage> {
           Text(
             'Recuérdame',
             style: TextStyle(
-              color: Colors.black87,
+              color: primaryText,
               // fontWeight: FontWeight.bold,
               fontSize: 16.0
             ),
@@ -168,14 +170,14 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget boton() {
+  Widget buttonLogin() {
     return Container(
       padding: EdgeInsets.only(top: 32.0, bottom: 24.0),
       width: double.infinity,
       child: RaisedButton(
-        elevation: 5.0,
+        elevation: 4.0,
         onPressed: (){},
-        color: Color(0xff1C83CE),
+        color: primaryBrand,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0)
         ),
@@ -187,7 +189,7 @@ class _LoginPageState extends State<LoginPage> {
             fontWeight: FontWeight.bold
           ),
           ),
-        padding: EdgeInsets.all(15.0),
+        padding: EdgeInsets.all(18.0),
       ),
     );
   }
@@ -201,17 +203,17 @@ class _LoginPageState extends State<LoginPage> {
             TextSpan(
               text: '¿No tiene cuenta? ',
               style: TextStyle(
-                color: Colors.black,
+                color: primaryText,
                 fontSize: 16.0,
-                fontWeight: FontWeight.w500
+                // fontWeight: FontWeight.w500
               )
             ),
             TextSpan(
               text: 'Regístrese',
               style: TextStyle(
-                color: Color(0xff1C83CE),
+                color: primaryBrand,
                 fontSize: 18.0,
-                fontWeight: FontWeight.w900
+                fontWeight: FontWeight.bold
               )
             )
           ]

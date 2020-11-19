@@ -16,10 +16,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: "Quicksand"
       ),
-      initialRoute: 'login',
+      initialRoute: 'home',
       routes: {
-        'login'   :    ( BuildContext context ) => LoginPage(),
-        'home'  :   (BuildContext context ) => HomePage(),
+        'login'     :    ( BuildContext context ) => LoginPage(),
+        'home'    :    ( BuildContext context ) => HomePage(),
+        'registro' :    ( BuildContext context ) => RegistroPage(),
       },
     );
   }
