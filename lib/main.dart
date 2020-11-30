@@ -11,9 +11,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Dataflex ERP',
-      theme: ThemeData(        primarySwatch: Colors.blue, fontFamily: "Quicksand"
+      theme: ThemeData(
+        primaryColor: Color(0xff1C83CE),
+        fontFamily: "Quicksand",
       ),
-      initialRoute: 'onvoice',
+      initialRoute: 'home',
       routes: {
         'login'   :    ( BuildContext context ) => LoginPage(),
         'home'  :   (BuildContext context ) => HomePage(),

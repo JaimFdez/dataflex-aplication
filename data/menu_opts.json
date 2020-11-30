@@ -1,0 +1,15 @@
+{
+    "nombreApp" : "Dataflex_erp",
+    "rutas" : [
+        {
+            "ruta" : "orders",
+            "icon" : "shopping-cart",
+            "texto": "Pedidos"
+        },
+        {
+            "ruta" : "clients",
+            "icon" : "accessibility",
+            "texto": "Clientes"
+        },
+    ]
+}
