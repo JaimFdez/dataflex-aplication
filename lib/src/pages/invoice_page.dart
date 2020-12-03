@@ -14,7 +14,7 @@ class _InvoicePageState extends State<InvoicePage> {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       // appBar: AppBar(title: Text("Factura" ,style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),), centerTitle: true, ),
-      appBar: null,
+      appBar: _appbar(),
       body: _container(),
     );
   }
