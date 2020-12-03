@@ -26,6 +26,8 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 titulo(),
                 SizedBox(height: 88.0),
+                inputRuc(),
+                SizedBox(height: 24.0),
                 inputUsuario(),
                 SizedBox(height: 24.0),
                 inputPassword(),
@@ -33,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
                 forgotPassword(),
                 rememberMe(),
                 buttonLogin(),
-                signupButton(),
+                // signupButton(),
               ],
             ),
         ),
@@ -46,6 +48,44 @@ class _LoginPageState extends State<LoginPage> {
         child: Image(
       image: AssetImage('assets/images/logo-dataflex.png'),
     ),
+    );
+  }
+
+  Widget inputRuc() {
+    return Container(
+      alignment: Alignment.centerLeft,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 4.0,
+            offset: Offset(0,2)
+          )
+        ]
+      ),
+      height: 64.0,
+      child: TextField(
+        keyboardType: TextInputType.number,
+        style: TextStyle(
+          color: primaryText,
+          fontWeight: FontWeight.bold
+        ),
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(
+            Icons.person_outline,
+            color: primaryBrand,
+          ),
+          hintText: 'RUC',
+          hintStyle: TextStyle(
+            color: Colors.black26,
+            fontSize: 16.0
+          ),
+        ),
+      ),
     );
   }
 
@@ -194,31 +234,31 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget signupButton() {
-    return GestureDetector(
-      onTap: () => print('Sign Up pressed'),
-      child: RichText(
-        text: TextSpan(
-          children: [
-            TextSpan(
-              text: '¿No tiene cuenta? ',
-              style: TextStyle(
-                color: primaryText,
-                fontSize: 16.0,
-                // fontWeight: FontWeight.w500
-              )
-            ),
-            TextSpan(
-              text: 'Regístrese',
-              style: TextStyle(
-                color: primaryBrand,
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold
-              )
-            )
-          ]
-        ),
-      )
-    );
-  }
+//   Widget signupButton() {
+//     return GestureDetector(
+//       onTap: () => print('Sign Up pressed'),
+//       child: RichText(
+//         text: TextSpan(
+//           children: [
+//             TextSpan(
+//               text: '¿No tiene cuenta? ',
+//               style: TextStyle(
+//                 color: primaryText,
+//                 fontSize: 16.0,
+//                 // fontWeight: FontWeight.w500
+//               )
+//             ),
+//             TextSpan(
+//               text: 'Regístrese',
+//               style: TextStyle(
+//                 color: primaryBrand,
+//                 fontSize: 18.0,
+//                 fontWeight: FontWeight.bold
+//               )
+//             )
+//           ]
+//         ),
+//       )
+//     );
+//   }
 }

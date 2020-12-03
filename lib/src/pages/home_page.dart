@@ -1,5 +1,6 @@
-import 'package:dataflex_erp/src/pages/orders_list_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -14,42 +15,48 @@ class HomePage extends StatelessWidget {
 
         ),
       ),
-      body: ListView(
-        padding: EdgeInsets.all(32.0),
+      body: Stack(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              cardTipo1(),
-              cardTipo2(),
-            ],
-            )
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 56.0),
+                child: GridView.count(
+                mainAxisSpacing: 32,
+                crossAxisSpacing: 40,
+                primary: false,
+                crossAxisCount: 2,
+                children: [
+                  _customCard('Pedidos', 'assets/icons/notas1.1.svg' ),
+                  _customCard('Clientes', 'assets/icons/clientela.svg' ),
+                ],
+            ),
+              ),
         ],
-      ),
+      )
     );
   }
 
 
-  Widget cardTipo1() {
-    return Card(
-      color: Colors.grey,
-      child: Column(
-        children: [
-          Icon(Icons.shopping_cart, size: 64.0,),
-          Text('Pedidos'),
-        ],
-      ),
-    );
-  }
+  Widget _customCard(String textModulo, String iconModulo) {
 
-  Widget cardTipo2() {
+    final cardTextStyle = TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold);
+
     return Card(
-      color: Colors.grey,
-      child: Column(
-        children: [
-          Icon(Icons.shopping_cart, size: 64.0,),
-          Text('Pedidos'),
-        ],
+      color: Color(0xffF2F2F2),
+      elevation: 4.0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.0)
+      ),
+      child: InkWell(
+        onTap: (){},
+          child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(iconModulo, height: 80, ),
+            // Icon(iconModulo, size: 100, color: Color(0xff1C83CE),),
+            SizedBox(height: 8.0,),
+            Text(textModulo, style: cardTextStyle,),
+          ],
+        ),
       ),
     );
   }
