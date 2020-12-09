@@ -5,14 +5,14 @@ import 'package:dataflex_erp/src/widgets/custom_widgets.dart';
 
 import 'package:flutter/rendering.dart';
 
-class OrdersPage extends StatefulWidget {
-  OrdersPage({Key key}) : super(key: key);
+class CreateOrderPage extends StatefulWidget {
+  CreateOrderPage({Key key}) : super(key: key);
 
   @override
-  _OrdersPageState createState() => _OrdersPageState();
+  _CreateOrderPageState createState() => _CreateOrderPageState();
 }
 
-class _OrdersPageState extends State<OrdersPage>{
+class _CreateOrderPageState extends State<CreateOrderPage>{
 
   @override
   Widget build(BuildContext context) {

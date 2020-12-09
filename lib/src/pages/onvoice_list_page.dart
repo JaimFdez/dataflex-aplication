@@ -90,7 +90,7 @@ class _OnvoiceListPageState extends State<OnvoiceListPage>{
         tooltip: 'Comprar podructos',
         child: Icon(Icons.add, size: 35),
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => OrdersPage()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => CreateOrderPage()));
           // Navigator.push(context, route)
         });
   }

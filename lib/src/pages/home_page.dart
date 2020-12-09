@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Principal'),
+        title: Text('Ventas'),
       ),
       drawer: Drawer(
         child: Center(
@@ -25,8 +24,8 @@ class HomePage extends StatelessWidget {
                 primary: false,
                 crossAxisCount: 2,
                 children: [
-                  _customCard('Pedidos', 'assets/icons/notas1.1.svg' ),
-                  _customCard('Clientes', 'assets/icons/clientela.svg' ),
+                  _customCard('Pedidos', 'assets/icons/notas1.1.svg', context, 'onvoice' ),
+                  _customCard('Clientes', 'assets/icons/clientela.svg', context, 'clients'),
                 ],
             ),
               ),
@@ -36,7 +35,7 @@ class HomePage extends StatelessWidget {
   }
 
 
-  Widget _customCard(String textModulo, String iconModulo) {
+  Widget _customCard(String textModulo, String iconModulo, context , String route) {
 
     final cardTextStyle = TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold);
 
@@ -47,7 +46,7 @@ class HomePage extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.0)
       ),
       child: InkWell(
-        onTap: (){},
+        onTap: ()=> Navigator.pushNamed(context, route),
           child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
