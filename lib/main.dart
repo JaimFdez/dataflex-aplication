@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xff1C83CE),
         fontFamily: "Quicksand",
       ),
-      initialRoute: 'home',
+      initialRoute: 'order',
       routes: {
         'login'   :    ( BuildContext context ) => LoginPage(),
         'home'  :   (BuildContext context ) => HomePage(),
