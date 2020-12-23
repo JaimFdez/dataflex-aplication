@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
-
+ 
 // import 'package:dataflex_erp/src/widgets/custom_widgets.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Principal'),
+        title: Text('Ventas'),
       ),
       drawer: Drawer(
         child: Center(
@@ -19,17 +19,17 @@ class HomePage extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 56.0),
-            child: GridView.count(
-              mainAxisSpacing: 32,
-              crossAxisSpacing: 40,
-              primary: false,
-              crossAxisCount: 2,
-              children: [
-                _customCard('Pedidos', 'assets/icons/notas1.1.svg' , context),
-                _customCard('Clientes', 'assets/icons/clientela.svg', context),
-              ],
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 56.0),
+                child: GridView.count(
+                mainAxisSpacing: 32,
+                crossAxisSpacing: 40,
+                primary: false,
+                crossAxisCount: 2,
+                children: [
+                  // _customCard('Pedidos', 'assets/icons/notas1.1.svg', context, 'onvoice' ),
+                  // _customCard('Clientes', 'assets/icons/clientela.svg', context, 'clients'),
+                ],
             ),
           ),
         ],
@@ -46,9 +46,8 @@ class HomePage extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.0)
       ),
       child: InkWell(
-        onTap: (){
-          // Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => OnvoiceListPage()));
-        },
+        onTap: (){},
+        // ()=> Navigator.pushNamed(context, route),
           child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

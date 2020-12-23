@@ -38,13 +38,14 @@ class _OnvoiceListPageState extends State<OnvoiceListPage>{
             const EdgeInsets.only(bottom: 0.0, left: 7.0, right: 7.0, top: 8.0),
         child: _cards(),
       ),
-      floatingActionButton: ButtonFAB(
-        expanded: expanded,
-        onTap: () {
-          // expanded = !expanded;
-          // setState(() {});
-        },
-      ), 
+      // floatingActionButton: 
+      // ButtonFAB(
+      //   expanded: expanded,
+      //   onTap: () {
+      //     // expanded = !expanded;
+      //     // setState(() {});
+      //   },
+      // ), 
     );
   }
 
@@ -234,56 +235,65 @@ class _OnvoiceListPageState extends State<OnvoiceListPage>{
 
 }
 
-/*
 
-Widget _cards() {
-    return ListView.builder(
-      itemCount: 8,
-      itemBuilder: (context, index) {
-        return Card(
-          elevation: 5,
-          shadowColor: Colors.black,
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    _text1('CONECTA RETAIL S.A'),
-                    _tag('Pendiente', Colors.red),
-                  ],
-                ),
-                SizedBox(height: 5.0,),
-                Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _text2('Comprobante Nro:'),
-                        _text2('Nro de pedido:'),
-                        _text2('Fecha pedido:'),
-                        _text2('Total:'),
-                      ],
-                    ),
-                    SizedBox(width: 10.0,),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _text2('16/10/2020 11:28:30'),
-                        _text2('F001-0000002626'),
-                        _text2('00000026'),
-                        _text2('S/. 111,215.0'),
-                      ],
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
 
-*/
+// Widget _cards() {
+//     return ListView.builder(
+//       itemCount: 8,
+//       itemBuilder: (context, index) {
+//         return Card(
+//           elevation: 5,
+//           shadowColor: Colors.black,
+//           child: Padding(
+//             padding: const EdgeInsets.all(12.0),
+//             child: Column(
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               children: [
+//                 Row(
+//                   children: [
+//                     _text1('CONECTA RETAIL S.A'),
+//                     _tag('Pendiente', Colors.red),
+//                   ],
+//                 ),
+//                 SizedBox(height: 5.0,),
+//                 Row(
+//                   children: [
+//                     Column(
+//                       crossAxisAlignment: CrossAxisAlignment.start,
+//                       children: [
+//                         _text2('Comprobante Nro:'),
+//                         _text2('Nro de pedido:'),
+//                         _text2('Fecha pedido:'),
+//                         _text2('Total:'),
+//                       ],
+//                     ),
+//                     SizedBox(width: 10.0,),
+//                     Column(
+//                       crossAxisAlignment: CrossAxisAlignment.start,
+//                       children: [
+//                         _text2('16/10/2020 11:28:30'),
+//                         _text2('F001-0000002626'),
+//                         _text2('00000026'),
+//                         _text2('S/. 111,215.0'),
+//                       ],
+//                     )
+//                   ],
+//                 ),
+//               ],
+//             ),
+//           ),
+//         );
+//       },
+//     );
+//   }
+
+//   Widget _fab() {
+//     return FloatingActionButton(
+//         tooltip: 'Comprar podructos',
+//         child: Icon(Icons.add, size: 35),
+//         onPressed: () {
+//           Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => CreateOrderPage()));
+//           // Navigator.push(context, route)
+//         });
+//   }
+// }

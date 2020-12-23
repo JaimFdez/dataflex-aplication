@@ -216,7 +216,7 @@ class _LoginPageState extends State<LoginPage> {
       width: double.infinity,
       child: RaisedButton(
         elevation: 4.0,
-        onPressed: (){},
+        onPressed: ()=> Navigator.pushReplacementNamed(context, 'home'),
         color: primaryBrand,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0)

@@ -15,13 +15,15 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xff1C83CE),
         fontFamily: "Quicksand",
       ),
-      initialRoute: 'order',
-      routes: {
-        'login'   :    ( BuildContext context ) => LoginPage(),
-        'home'  :   (BuildContext context ) => HomePage(),
-        'order'  :   (BuildContext context ) => OrdersPage(),
-        'onvoice'  :   (BuildContext context ) => OnvoiceListPage(),
-        // 'com' : (BuildContext context) => CheckPage(),
+      initialRoute: 'login',
+      routes: <String, WidgetBuilder>{
+        'login' :      (BuildContext context) => LoginPage(),
+        'home' :     (BuildContext context) => HomePage(),
+        'order' :     (BuildContext context) => CreateOrderPage(),
+        'onvoice' :  (BuildContext context) => OnvoiceListPage(),
+        'clients' :    (BuildContext context) => ClientsPage(),   
+        'invoice' : (BuildContext context) => InvoicePage(),
+        'createClient' : (BuildContext context) => CreateClientsPage(),
       },
     );
   }
