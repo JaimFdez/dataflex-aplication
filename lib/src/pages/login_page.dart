@@ -14,31 +14,36 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0XFF0089D1),
       body: SafeArea(
-        child: SingleChildScrollView(
-          // physics: AlwaysScrollableScrollPhysics(),
-          padding: EdgeInsets.symmetric(
-            horizontal: 32.0,
-            vertical: 56.0
-          ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(vertical: 24.0),
+            child: Center(
+              child: Column(
               children: [
-                titulo(),
-                SizedBox(height: 88.0),
-                inputRuc(),
-                SizedBox(height: 24.0),
-                inputUsuario(),
-                SizedBox(height: 24.0),
-                inputPassword(),
-                SizedBox(height: 24.0),
-                forgotPassword(),
-                rememberMe(),
-                buttonLogin(),
-                // signupButton(),
+                ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: 400, minWidth: 300),
+                  child: Form(
+                    child: Column(
+                     children: [
+                       titulo(),
+                       inputRuc(),
+                       SizedBox(height: 24.0),
+                       inputUsuario(),
+                       SizedBox(height: 24.0),
+                       inputPassword(),
+                       SizedBox(height: 24.0),
+                       forgotPassword(),
+                       rememberMe(),
+                       buttonLogin(),
+                     ],
+                  ),
+                    ),
+                  )
               ],
+          ),
             ),
-        ),
+          ),
       ),
     );
   }
@@ -46,7 +51,8 @@ class _LoginPageState extends State<LoginPage> {
   Widget titulo() {
     return Container(
         child: Image(
-      image: AssetImage('assets/images/logo-dataflex.png'),
+          height: 300.0,
+          image: AssetImage('assets/images/logo.png'),
     ),
     );
   }
@@ -56,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
       alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(16.0),
         boxShadow: [
           BoxShadow(
             color: Colors.black26,
@@ -66,26 +72,26 @@ class _LoginPageState extends State<LoginPage> {
         ]
       ),
       height: 64.0,
-      child: TextField(
-        keyboardType: TextInputType.number,
-        style: TextStyle(
-          color: primaryText,
-          fontWeight: FontWeight.bold
-        ),
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          contentPadding: EdgeInsets.only(top: 14),
-          prefixIcon: Icon(
-            Icons.person_outline,
-            color: primaryBrand,
+        child: TextFormField(
+          keyboardType: TextInputType.number,
+          style: TextStyle(
+            color: primaryText,
+            fontWeight: FontWeight.bold
           ),
-          hintText: 'RUC',
-          hintStyle: TextStyle(
-            color: Colors.black26,
-            fontSize: 16.0
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            contentPadding: EdgeInsets.only(top: 14),
+            prefixIcon: Icon(
+              Icons.person_outline,
+              color: primaryBrand,
+            ),
+            hintText: 'RUC',
+            hintStyle: TextStyle(
+              color: Colors.black26,
+              fontSize: 16.0
+            ),
           ),
         ),
-      ),
     );
   }
 
@@ -94,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
       alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(16.0),
         boxShadow: [
           BoxShadow(
             color: Colors.black26,
@@ -104,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
         ]
       ),
       height: 64.0,
-      child: TextField(
+      child: TextFormField(
         keyboardType: TextInputType.emailAddress,
         style: TextStyle(
           color: primaryText,
@@ -132,7 +138,7 @@ class _LoginPageState extends State<LoginPage> {
       alignment: Alignment.centerRight,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(16.0),
         boxShadow: [
           BoxShadow(
             color: Colors.black26,
@@ -142,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
         ]
       ),
       height: 64.0,
-      child: TextField(
+      child: TextFormField(
         obscureText: true,
         style: TextStyle(
           color: primaryText,
@@ -174,7 +180,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Text(
           '¿Olvidó su contraseña?',
           style: TextStyle(
-            color: primaryBrand,
+            color: Colors.white,
             fontSize: 14.0
           ),
         ),
@@ -189,8 +195,9 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Checkbox(
             value: isRememberMe, 
-            checkColor: Colors.white,
-            activeColor: primaryBrand,
+            checkColor: Colors.blue,
+            activeColor: Colors.white,
+            autofocus: true,
             onChanged: (value) {
               setState(() {
                 isRememberMe = value;
@@ -200,7 +207,7 @@ class _LoginPageState extends State<LoginPage> {
           Text(
             'Recuérdame',
             style: TextStyle(
-              color: primaryText,
+              color: Colors.white,
               // fontWeight: FontWeight.bold,
               fontSize: 16.0
             ),
@@ -217,19 +224,19 @@ class _LoginPageState extends State<LoginPage> {
       child: RaisedButton(
         elevation: 4.0,
         onPressed: ()=> Navigator.pushReplacementNamed(context, 'home'),
-        color: primaryBrand,
+        color: Color(0XFF88CA44),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0)
+          borderRadius: BorderRadius.circular(16.0)
         ),
         child: Text(
-          'Ingresar',
+          'INGRESAR',
           style: TextStyle(
             color: Colors.white,
             fontSize: 18.0,
-            fontWeight: FontWeight.bold
+            fontWeight: FontWeight.w900
           ),
           ),
-        padding: EdgeInsets.all(18.0),
+        padding: EdgeInsets.symmetric(horizontal: 96.0, vertical: 18.0),
       ),
     );
   }

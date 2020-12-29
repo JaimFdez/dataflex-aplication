@@ -12,267 +12,204 @@ class _InvoicePageState extends State<InvoicePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
-      // appBar: AppBar(title: Text("Factura" ,style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),), centerTitle: true, ),
-      appBar: null,
-      body: _container(),
+      appBar: AppBar(
+        title: Text(
+          'Detalle pedido',
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 16.0
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.picture_as_pdf, color: Colors.white,),
+            onPressed: (){},
+            ),
+            IconButton(
+              icon: Icon(Icons.share, color: Colors.white), 
+              onPressed: (){},
+              ),
+              IconButton(
+                icon: Icon(Icons.more_vert, color: Colors.white),
+                onPressed: (){},
+                )
+        ],
+      ),
+      body: ListView(
+        padding: EdgeInsets.all(16.0),
+        children: [
+          _onvice()
+        ],
+      ),
     );
   }
 
-  Widget _appbar(){
-
-    return AppBar(
-      title: Text("Factura" ,style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold), ),
-      centerTitle: true,
-      actions: [
-        IconButton(
-          icon: Icon(Icons.check_circle_outline),
-          onPressed: (){
-            
-            AlertDialog(
-              title: Text("data"),
-              content: Text("data"),
-              actions: [
-                FlatButton(onPressed: (){}, child: Text("data"))
-              ],
-            );
-            setState(() {
-              
-            });
-          }
-        )
-      ],
-    
-    );
-
-  }
-
- Widget _container() {
-   return Padding(
-     padding: const EdgeInsets.all(8.0),
-     child: _onvice(),
-   );
- }
 
  Widget _onvice() {
-   return Container(
-     width: double.infinity,
-     height: double.infinity,
-     color: Colors.white,
-     child: Padding(
-       padding: EdgeInsets.all(7),
-       child: SingleChildScrollView(
-         child: Column(
+   return Column(
            children: [
-             _logo(),
              _head(),
-              Divider(color: Colors.blue[300], thickness: 2.5),
+              Divider(color: Colors.black54, thickness: 2.5),
              _itemsList(),
-              Divider(thickness: 1.5, indent: 115.0,),
-             _iva(),
-              Divider(thickness: 1.5, indent: 115.0,),
-             _subTotal(),
-              Divider(thickness: 1.5, indent: 115.0,),
-             _total(),
+             _itemsList(),
+             _itemsList(),
+             _itemsList(),
+             _itemsList(),
+             _itemsList(),
+             _itemsList(),
+             _itemsList(),
+             _itemsList(),
+             _itemsList(),
+             _itemsList(),
+             _itemsList(),
+            SizedBox(height: 16.0,),
+             _cuentaTotal(),
            ],
-         ),
-       ),
-     ),
-   );
+         );
  }
 
-  Widget _logo() {
-    return Container(
-      height: 90,
-      // color: Colors.green,
-      width: 300,
-      child: Image.asset("assets/images/logo-dataflex.png"),
-    );
-  }
-
-  TextStyle style1 = new TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.w900,
-    color: Colors.lightBlue[600]
-  );
   TextStyle style2 = new TextStyle(
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: FontWeight.w600,
   );
 
   Widget _head() {
     return Container(
-      width: double.infinity,
-      // color: Colors.lightGreen,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
+      padding: EdgeInsets.only(top:0.0, bottom: 16.0),
+      child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Facturado a:", style: style1,),
-              SizedBox(height: 10.0,),
-              Text("Jaime", style: style2,),
-              Text("Peru", style: style2,),
+              Row(
+                children: [
+                  Text("Cliente:"),
+                  SizedBox(width: 10.0,),
+                  Text('CONECTA RETAIL S.A.', style: style2,)
+                ],
+              ),
+              SizedBox(height: 4.0,),
+              Row(
+                children: [
+                  Text("Fecha de entrega:"),
+                  SizedBox(width: 16.0),
+                  Text('16/10/2020')
+                ],
+              ),
+              Row(
+                children: [
+                  Text("Fecha de emisión:"),
+                  SizedBox(width: 16.0),
+                  Text('16/10/2020')
+                ],
+              ),
+              Row(
+                children: [
+                  Text("Comprobante de venta:"),
+                  SizedBox(width: 16.0),
+                  Text('F001-00000026')
+
+                ],
+              ), 
+              Row(
+                children: [
+                  Text("Nro. de pedido:"),
+                  SizedBox(width: 16.0,),
+                  Text('00000026')
+                ],
+              ),
+              Row(
+                children: [
+                  Text("Condición de pago:"),
+                  SizedBox(width: 16.0),
+                  Text('Contado')
+                ],
+              ),
+              Row(
+                children: [
+                  Text("Forma de pago:"),
+                  SizedBox(width: 16.0),
+                  Text('Efectivo')
+                ],
+              ),
             ],
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text("Factura No.", style: style1),
-              Text("No. 168418", style: style2),
-              SizedBox(height: 10.0,),
-              Text("Fecha de Emisión", style: style1,),
-              Text("19/11/20", style: style2,),
-              SizedBox(height: 10.0,),
-              Text("Fecha de Vencimiento", style: style1,),
-              Text("15/01/21", style: style2,),
-            ],
-          ),
-        ],
-      ),
     );
 
   }
 
   Widget _itemsList(){
 
-    return Container(
-      // color: Colors.orange,
-      height: MediaQuery.of(context).size.height - 380.97,
-      child: Column(
-        children: [
-          Row(
+    return Card(
+        elevation: 1.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(0.0)
+        ),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 12.0),
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Nombre del Producto", style: style1,),
-              Text("Precio Total", style: style1,),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('HP Ink tank415', style: style2,),
+                  SizedBox(height: 4.0,),
+                  Text('Cantidad: 650'),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text('Precio: S/. 145.00'),
+                  SizedBox(height: 4.0,),
+                Text('Total: S/. 94,250.00', style: style2)
+                ],
+              )
             ],
           ),
-          
-          Expanded(
-            child: ListView.builder(
-              itemCount: 7,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text("Sopa Maruchan Inst.", style: style2,),
-                  subtitle: Row(children:[Text("P/U: \$0.50 - "), Text("Cant: 4")]),
-                  trailing: Text("\$2.00", style: style2,),
-                );
-              },
+        ),
+      );
+  }
+
+  Widget _cuentaTotal() {
+    return Card(
+      color: Color(0xfff2f2f2),
+      elevation: 1.0,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Operaciones gratuitas:', style: style2),
+                Text('Exonerado:', style: style2),
+                Text('Inafecto:', style: style2),
+                Text('Afecto:', style: style2),
+                Text('I.G.V. 18%:', style: style2),
+                Text('Total:', style: style2),
+                Text('Percepción:', style: style2),
+                Text('TOTAL A PAGAR:', style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
+              ],
             ),
-          ),
-        ],
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text('0.00', style: style2),
+                Text('0.00', style: style2),
+                Text('0.00', style: style2),
+                Text('94,250.00', style: style2),
+                Text('16,965.00', style: style2),
+                Text('111,215.00', style: style2),
+                Text('0.00', style: style2),
+                Text('S/. 111,215.00', style: style2),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  Widget _iva(){
-
-    return Container(
-      // color: Colors.blue,
-      width: double.infinity,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text("Operaciones gratuitas: "),
-              Text("Exonerada: "),
-              Text("Inafecto: "),
-              Text("Afecto: "),
-              Text("I.G.V 18%: "),
-            ],
-          ),
-          Column(
-            children: [
-              Text("                              ")
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text("\$20", style: style2,),
-              Text("\$20", style: style2,),
-              Text("\$20", style: style2,),
-              Text("\$20", style: style2,),
-              Text("\$20", style: style2,),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-
-  Widget _subTotal(){
-
-    return Container(
-      // color: Colors.blue,
-      width: double.infinity,
-      child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text("Percepcion: "),
-              Text("Total: "),
-              Text("Monto adeudado: "),
-              Text("                                        "),
-            ],
-          ),
-          Column(
-            children: [
-              Text("                              ")
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text("\$20", style: style2,),
-              Text("\$20", style: style2,),
-              Text("\$20", style: style2,),
-              Text(""),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-
-  Widget _total(){
-
-    return Container(
-      // color: Colors.blue,
-      width: double.infinity,
-      child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text("Total a Pagar: "),
-              Text("                                        "),
-            ],
-          ),
-          Column(
-            children: [
-              Text("                              ")
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text("\$20", style: style2,),
-              Text(""),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
 }

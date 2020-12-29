@@ -6,12 +6,32 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ventas'),
+        title: Text('Ventas', style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),),
+        centerTitle: true,
       ),
       drawer: Drawer(
-        child: Center(
-          child: Text('Hola')
-
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text('Christian'), 
+              accountEmail: Text('christian6@gmail.com'),
+              currentAccountPicture: CircleAvatar(
+              backgroundColor: Colors.green,
+              child: Text('C', style: TextStyle(fontSize: 40.0)),  
+              ),
+              ),
+            ListTile(
+              title: Text('Ventas', style: TextStyle(fontWeight: FontWeight.bold),),
+              leading: Icon(Icons.camera_alt),
+              onTap: (){},
+            ),
+            Divider(),
+            ListTile(
+              title: Text('Salir', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),),
+              leading: Icon(Icons.exit_to_app),
+              onTap: (){},
+            )
+          ],
         ),
       ),
       body: Stack(

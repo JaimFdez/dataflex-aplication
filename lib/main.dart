@@ -1,5 +1,8 @@
+import 'package:dataflex_erp/src/pages/new_login.dart';
 import 'package:flutter/material.dart';
 import 'package:dataflex_erp/src/widgets/custom_widgets.dart';
+
+import 'src/bloc/provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,11 +11,13 @@ void main() {
 class MyApp extends StatelessWidget { 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return Provider(
+      child: MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Dataflex ERP',
       theme: ThemeData(
         primaryColor: Color(0xff1C83CE),
+        accentColor: Color(0xff1C83CE),
         fontFamily: "Quicksand",
       ),
       initialRoute: 'login',
@@ -24,7 +29,16 @@ class MyApp extends StatelessWidget {
         'clients' :    (BuildContext context) => ClientsPage(),   
         'invoice' : (BuildContext context) => InvoicePage(),
         'createClient' : (BuildContext context) => CreateClientsPage(),
+        'listArticles' : (BuildContext context) => ListArticlesPage(),
+        'newLogin' : (BuildContext context) => NewLogin(),
       },
+    ),
     );
+    
+    
+    
+    
+    
+    
   }
 }

@@ -17,10 +17,11 @@ class _OnvoiceListPageState extends State<OnvoiceListPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appbar(),
-      body: Padding(
-        padding:
-            const EdgeInsets.only(bottom: 0.0, left: 7.0, right: 7.0, top: 8.0),
-        child: _cards(),
+      body:  ListView.builder(
+        itemCount: 20,
+        itemBuilder: (context, index) {
+          return _cards();
+        },
       ),
       floatingActionButton: _fab(), 
     );
@@ -29,69 +30,83 @@ class _OnvoiceListPageState extends State<OnvoiceListPage>{
   Widget _appbar() {
     return AppBar(
       title: Text(
-        "Lista de Factura",
-        style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+        "Pedidos",
+        style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
       ),
       centerTitle: true,
+      actions: [IconButton(icon: const Icon(Icons.search), onPressed: () {})],
     );
   }
 
   Widget _cards() {
-    return ListView.builder(
-      itemCount: 8,
-      itemBuilder: (context, index) {
-        return GestureDetector(
-          onTap: ()=> Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => InvoicePage())),
-          child: Card(
-            elevation: 5,
-            shadowColor: Colors.black,
-            child: Padding(
-              padding: EdgeInsets.all(15.0),
-              child: Row(
+    return Card(
+      elevation: 2.0,
+      child: InkWell(
+        onTap: ()=> Navigator.pushNamed(context, 'invoice'),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("CONECTA RETAIL S.A", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w900),),
-                            Text("Fecha de pedido:", style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700),),
-                            Text("Pedido No:", style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700),),
-                            Text("Comproban:", style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700),),
-                            Text("Total:",  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700),),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text( "", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),),
-                            Text( "30/06/20", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),),
-                            Text( "62898", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),),
-                            Text( "1 ", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),),
-                            Text( "\$400 ", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),),
-                          ],
-                        ),
-                      ],
+                  Text('CONECTA RETAIL S.A.', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold), overflow: TextOverflow.ellipsis,),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4.0),
+                      color: Color(0XFF27AE60)
                     ),
-                  ),
+                    padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
+                    child: Text('Facturado', style: TextStyle(fontSize: 12.0, color: Colors.white, fontWeight: FontWeight.w600)))
                 ],
               ),
-            ),
+              SizedBox(height: 8.0),
+              Row(
+                children: [
+                  Text("Fecha de pedido ", style: TextStyle(fontSize: 14,),),
+                  SizedBox(width: 11.0,),
+                  Text(': 16/10/2020 11:28:30'),
+                ],
+              ),
+              Row(
+                children: [
+                  Text("Comprobante Nro : F001-00000026", style: TextStyle(fontSize: 14,),),
+                ],
+              ),
+              Row(
+                children: [
+                  Text("Nro. de pedido ", style: TextStyle(fontSize: 14,),),
+                  SizedBox(width: 24,),
+                  Text(': 00000026')
+                ],
+              ),
+              Row(
+                children: [
+                  Text("Total ",  style: TextStyle(fontSize: 14,),),
+                  SizedBox(width: 92.0,),
+                  Text(': S/. 111,215.00')
+                ],
+              ),
+            ],
           ),
-        );
-      },
+          
+        ),
+      ),
     );
   }
 
   Widget _fab() {
-    return FloatingActionButton(
-        tooltip: 'Comprar podructos',
-        child: Icon(Icons.add, size: 35),
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => CreateOrderPage()));
-          // Navigator.push(context, route)
-        });
+    return Container(
+      margin: EdgeInsets.only(bottom: 24.0),
+      child: FloatingActionButton.extended(
+          // tooltip: 'Comprar podructos',
+          label: const Text('NUEVO PEDIDO', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0)),
+          icon: const Icon(Icons.shopping_cart, size: 24),
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => CreateOrderPage()));
+            // Navigator.push(context, route)
+          }),
+    );
   }
 }

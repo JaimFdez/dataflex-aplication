@@ -68,7 +68,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.blue, width: 1),
+        border: Border.all(color: Colors.black38, width: 1),
         borderRadius: BorderRadius.circular(16.0)
       ),
       child: DropdownButton(

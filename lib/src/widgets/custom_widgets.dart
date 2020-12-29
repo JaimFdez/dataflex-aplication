@@ -7,3 +7,4 @@ export 'package:dataflex_erp/src/widgets/search_widget.dart';
 export 'package:dataflex_erp/src/pages/onvoice_list_page.dart';
 export 'package:dataflex_erp/src/pages/clients_page.dart';
 export 'package:dataflex_erp/src/pages/create_clients_page.dart';
+export 'package:dataflex_erp/src/pages/list_articles_page.dart';
