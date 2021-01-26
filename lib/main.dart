@@ -1,26 +1,33 @@
-import 'package:dataflex_erp/src/pages/new_login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:dataflex_erp/src/widgets/custom_widgets.dart';
-
-import 'src/bloc/provider.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget { 
+class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
-    return Provider(
-      child: MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', 'US'), // English, no country code
+        const Locale('es', 'ES'),
+      ],
       title: 'Dataflex ERP',
       theme: ThemeData(
         primaryColor: Color(0xff1C83CE),
         accentColor: Color(0xff1C83CE),
         fontFamily: "Quicksand",
       ),
-      initialRoute: 'login',
+      initialRoute: 'createClient',
       routes: <String, WidgetBuilder>{
         'login' :      (BuildContext context) => LoginPage(),
         'home' :     (BuildContext context) => HomePage(),
@@ -30,15 +37,8 @@ class MyApp extends StatelessWidget {
         'invoice' : (BuildContext context) => InvoicePage(),
         'createClient' : (BuildContext context) => CreateClientsPage(),
         'listArticles' : (BuildContext context) => ListArticlesPage(),
-        'newLogin' : (BuildContext context) => NewLogin(),
       },
-    ),
     );
-    
-    
-    
-    
-    
     
   }
 }

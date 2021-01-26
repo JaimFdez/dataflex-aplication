@@ -12,12 +12,16 @@ class OrderDisplay2Widget extends StatefulWidget {
 class _OrderDisplay2WidgetState extends State<OrderDisplay2Widget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView(
+    return Scaffold(
+      body: ListView(
         children: [
-          Text('que pasa'),
+          
         ],
-      )
+      ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: ()=> Navigator.pushNamed(context, 'listArticles'),
+          child: Icon(Icons.add),
+          ),
     );
   }
 }

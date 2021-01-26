@@ -7,9 +7,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
-  bool isRememberMe = false;
-  final primaryBrand = Color(0xff1C83CE);
-  final primaryText = Color(0xff434343);
+  // bool isRememberMe = false;
+  final primaryBrand = Color(0XFF1C83CE);
+  final primaryText = Color(0XFF434343);
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +33,8 @@ class _LoginPageState extends State<LoginPage> {
                        SizedBox(height: 24.0),
                        inputPassword(),
                        SizedBox(height: 24.0),
-                       forgotPassword(),
-                       rememberMe(),
+                      //  forgotPassword(),
+                      //  rememberMe(),
                        buttonLogin(),
                      ],
                   ),
@@ -171,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget forgotPassword() {
+  /* Widget forgotPassword() {
     return Container(
       alignment: Alignment.centerRight,
       child: FlatButton(
@@ -186,9 +186,9 @@ class _LoginPageState extends State<LoginPage> {
         ),
         ),
     );
-  }
+  } */
 
-  Widget rememberMe() {
+  /* Widget rememberMe() {
     return Container(
       height: 20.0,
       child: Row(
@@ -215,14 +215,14 @@ class _LoginPageState extends State<LoginPage> {
         ],
       ),
     );
-  }
+  } */
 
   Widget buttonLogin() {
     return Container(
       padding: EdgeInsets.only(top: 32.0, bottom: 24.0),
       width: double.infinity,
       child: RaisedButton(
-        elevation: 4.0,
+        elevation: 5.0,
         onPressed: ()=> Navigator.pushReplacementNamed(context, 'home'),
         color: Color(0XFF88CA44),
         shape: RoundedRectangleBorder(

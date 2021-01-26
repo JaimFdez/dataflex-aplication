@@ -2,11 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ClientsPage extends StatefulWidget {
+
+  /* String numDocumento;
+  ClientsPage(this.numDocumento, {Key key}) : super(key: key); */
+
   @override
   _ClientsPageState createState() => _ClientsPageState();
 }
 
 class _ClientsPageState extends State<ClientsPage> {
+
+  List<Cliente> _clientes = [
+    Cliente('CONECTA RETAIL S.A.', '20525426778'),
+    Cliente('ARTROSCOPICTRAUMA S.A.C.','20538856674'),
+    Cliente('ASERCO EB EMPRESA INDIVIDUAL DE RESPONSABILIDAD LIMITADA','20549500553'),
+    Cliente('ASOCIACION COMUNIDAD CRISTIANA EVANGELICA FUEGO DE DIOS DEL PERU','20551597939'),
+    Cliente('BI GRAND CONFECCIONES S.A.C.','20553856451'),
+    Cliente('CONCEPTOS & CONSTRUCCIONES V.G EIRL','20525426778'),
+    Cliente('CORPORACION CARMINA SAC','20601155185'),
+    Cliente('CORPORACION INDUSTRIAL ALPA`C S.A.C.','20555629541'),
+    Cliente('ESTUDIO CONTABLE BUSTAMANTE & VICHARRA SOCIEDAD ANONIMA CERRADA - ESTUDIO CONTABLE BUSTAMANTE & VIC	','20601587417'),
+    Cliente('H & J E HIJOS E.I.R.L	','20518639928'),
+    Cliente('INSUMOS PISQUEROS DEL SUR E.I.R.L.	','20558629585'),
+    Cliente('METEORO RACING SOCIEDAD ANONIMA CERRADA	','20548971111'),
+    Cliente('MINERA SAN FELIPE EMPRESA INDIVIDUAL DE RESPONSABILIDAD LIMITADA	','20364368594'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     
@@ -18,61 +39,55 @@ class _ClientsPageState extends State<ClientsPage> {
         ],
       ),
       body: ListView.builder(
-        itemCount: 20,
+        itemCount: _clientes.length,
         itemBuilder: (context, index) {
           return Container(
             width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.symmetric(horizontal: 4.0, vertical: 0.0),
-            child: _cardClients(context),
+            child: _cardClients(context, index, _clientes),
           );
         },
-        ),
+        ), 
 
         floatingActionButton: FloatingActionButton(
-          onPressed: ()=> Navigator.pushNamed(context, 'createClient'),
+          onPressed: () => Navigator.pushNamed(context, 'createClient'),
           child: SvgPicture.asset('assets/icons/bxs-user-plus.svg', color: Colors.white),
           ),
       );
   }
   }
 
-  Widget _cardClients(context) {
+  Widget _cardClients(context, index, _clientes) {
     return Card(
-      elevation: 1.0,
-      shape: RoundedRectangleBorder(
+      elevation: 5.0,
+      /*shape: RoundedRectangleBorder(
         borderRadius: BorderRadiusDirectional.circular(8.0)
-        ),
-      child: InkWell(
-        onTap: (){},
-          child: Container(
-          width: MediaQuery.of(context).size.width,
-          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
-          child: Row(
-            children: [
-              CircleAvatar(
-                child: Text('C', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.0),)
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('CONECTA RETAIL S.A.', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),),
-                    SizedBox(height: 8.0,),
-                    Row(
-                      children: [
-                        Text('RUC: ', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14.0),),
-                        Text('20525426778')
-                      ],
-                    ),
-
-                  ],
-                ),
-              )
-            ],
+        ),*/
+      child: Column(
+        children: [
+          ListTile(
+            contentPadding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            onTap: (){},
+            leading: CircleAvatar(
+              child: Text(_clientes[index]._nombre.substring(0,1), style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),),
+            ),
+            title: Text(_clientes[index]._nombre , style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w900),),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 8.0),
+                Text('RUC: ${_clientes[index]._documento}', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14.0),),
+              ],
+            ),
           ),
-        ),
-      )
-      
+        ],
+      ),
     );
+  }
+
+  class Cliente {
+    String _nombre;
+    String _documento;
+
+    Cliente(this._nombre, this._documento);
   }
