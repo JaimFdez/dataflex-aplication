@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:dataflex_erp/src/widgets/custom_widgets.dart';
+
+import 'src/routes/routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,17 +29,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "Quicksand",
       ),
       initialRoute: 'createClient',
-      routes: <String, WidgetBuilder>{
-        'login' :      (BuildContext context) => LoginPage(),
-        'home' :     (BuildContext context) => HomePage(),
-        'order' :     (BuildContext context) => CreateOrderPage(),
-        'onvoice' :  (BuildContext context) => OnvoiceListPage(),
-        'clients' :    (BuildContext context) => ClientsPage(),   
-        'invoice' : (BuildContext context) => InvoicePage(),
-        'createClient' : (BuildContext context) => CreateClientsPage(),
-        'listArticles' : (BuildContext context) => ListArticlesPage(),
-      },
+      routes: getApplicationRoutes(),
     );
-    
   }
 }
