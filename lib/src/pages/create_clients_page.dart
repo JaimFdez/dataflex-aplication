@@ -7,6 +7,7 @@ class CreateClientsPage extends StatefulWidget {
 }
 
 class _CreateClientsPageState extends State<CreateClientsPage> {
+
   EmpresasProvider _empresasProvider = new EmpresasProvider();
 
   String documentValue;
@@ -37,27 +38,9 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   String _giroSelec = 'Medicamentos';
   List<String> _documento = ['RUC', 'DNI'];
   List<String> _paises = ['Perú', 'Bolivia', 'Argentina', 'Chile', 'Colombia'];
-  List<String> _departamentos = [
-    'Lima',
-    'Tumbes',
-    'Lambayeque',
-    'Ancash',
-    'La libertad'
-  ];
-  List<String> _provincias = [
-    'Lima',
-    'Tumbes',
-    'Lambayeque',
-    'Ancash',
-    'La libertad'
-  ];
-  List<String> _distritos = [
-    'Los Olivos',
-    'Comas',
-    'Independencia',
-    'La Molina',
-    'Santa Anita'
-  ];
+  List<String> _departamentos = ['Lima','Tumbes','Lambayeque','Ancash','La libertad'];
+  List<String> _provincias = ['Lima','Tumbes','Lambayeque','Ancash','La libertad'];
+  List<String> _distritos = ['Los Olivos','Comas','Independencia','La Molina','Santa Anita'];
   List<String> _tipoCanal = ['Mayorista', 'Minorista'];
   List<String> _giroNegocio = ['Medicamentos', 'Abarrotes'];
 
@@ -93,89 +76,47 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
             padding: EdgeInsets.all(16.0),
             children: [
               _documentDropdown(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _documentTextForm(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _razonSocialTextForm(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _nombreComercialTextForm(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _apellidoPaternoTextForm(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _apellidoMaternoTextForm(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _nombresTextForm(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _direccionTextForm(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _referenciaTextForm(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _paisesDropdown(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _departamentosDropdown(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _provinciasDropdown(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _distritosDropdown(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _canalDropdown(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _giroDropdown(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _contactoTextForm(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _email1TextForm(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _email2TextForm(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _email3TextForm(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _telefono1TextForm(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _telefono2TextForm(),
-              SizedBox(
-                height: 16.0,
-              ),
+              SizedBox(height: 16.0),
               _telefono3TextForm(),
             ],
           ),
