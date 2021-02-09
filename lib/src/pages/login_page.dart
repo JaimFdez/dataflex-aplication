@@ -6,166 +6,124 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
-  // bool isRememberMe = false;
   final primaryBrand = Color(0XFF1C83CE);
+  final secondaryBrand = Color(0XFF88CA44);
   final primaryText = Color(0XFF434343);
+  final _colorFondo = Color(0XFF0089D1);
+  final kBodyText = TextStyle(
+      fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.white);
 
   @override
   Widget build(BuildContext context) {
+    final _screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
-      backgroundColor: Color(0XFF0089D1),
+      backgroundColor: _colorFondo,
       body: SafeArea(
-          child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(vertical: 24.0),
-            child: Center(
-              child: Column(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
               children: [
-                ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: 400, minWidth: 300),
-                  child: Form(
-                    child: Column(
-                     children: [
-                       titulo(),
-                       inputRuc(),
-                       SizedBox(height: 24.0),
-                       inputUsuario(),
-                       SizedBox(height: 24.0),
-                       inputPassword(),
-                       SizedBox(height: 24.0),
-                      //  forgotPassword(),
-                      //  rememberMe(),
-                       buttonLogin(),
-                     ],
+                Container(
+                  width: _screenSize.width * 0.75,
+                  padding: EdgeInsets.only(bottom: 16.0),
+                  child: Column(
+                    children: [
+                      Container(
+                        child: _titulo(),
+                      ),
+                      _inputRuc(),
+                      SizedBox(height: 16.0),
+                      _inputUsuario(),
+                      SizedBox(height: 16.0),
+                      _inputPassword(),
+                      SizedBox(height: 48.0),
+                      _buttonLogin(),
+                    ],
                   ),
-                    ),
-                  )
+                ),
               ],
-          ),
-            ),
-          ),
-      ),
-    );
-  }
-
-  Widget titulo() {
-    return Container(
-        child: Image(
-          height: 300.0,
-          image: AssetImage('assets/images/logo.png'),
-    ),
-    );
-  }
-
-  Widget inputRuc() {
-    return Container(
-      alignment: Alignment.centerLeft,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black26,
-            blurRadius: 4.0,
-            offset: Offset(0,2)
-          )
-        ]
-      ),
-      height: 64.0,
-        child: TextFormField(
-          keyboardType: TextInputType.number,
-          style: TextStyle(
-            color: primaryText,
-            fontWeight: FontWeight.bold
-          ),
-          decoration: InputDecoration(
-            border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(
-              Icons.person_outline,
-              color: primaryBrand,
-            ),
-            hintText: 'RUC',
-            hintStyle: TextStyle(
-              color: Colors.black26,
-              fontSize: 16.0
             ),
           ),
         ),
+      ),
     );
   }
 
-  Widget inputUsuario() {
+  Widget _titulo() {
+    final _screenSize = MediaQuery.of(context).size;
     return Container(
-      alignment: Alignment.centerLeft,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black26,
-            blurRadius: 4.0,
-            offset: Offset(0,2)
-          )
-        ]
+      height: _screenSize.height * 0.53,
+      child: Image(
+        image: AssetImage('assets/images/logo.png'),
       ),
-      height: 64.0,
-      child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
-        style: TextStyle(
-          color: primaryText,
-          fontWeight: FontWeight.bold
-        ),
+    );
+  }
+
+  Widget _inputRuc() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.5),
+        borderRadius: BorderRadius.circular(16.0),
+      ),
+      child: TextField(
+        keyboardType: TextInputType.number,
+        style: kBodyText,
         decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(vertical: 16.0),
           border: InputBorder.none,
-          contentPadding: EdgeInsets.only(top: 14),
-          prefixIcon: Icon(
-            Icons.person_outline,
-            color: primaryBrand,
+          hintText: 'Empresa',
+          prefixIcon: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Icon(Icons.view_week_rounded, color: Colors.white, size: 30.0),
           ),
+          hintStyle: kBodyText,
+        ),
+      ),
+    );
+  }
+
+  Widget _inputUsuario() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.5),
+        borderRadius: BorderRadius.circular(16.0),
+      ),
+      child: TextField(
+        keyboardType: TextInputType.text,
+        style: kBodyText,
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(vertical: 16.0),
+          border: InputBorder.none,
           hintText: 'Usuario',
-          hintStyle: TextStyle(
-            color: Colors.black26,
-            fontSize: 16.0
+          prefixIcon: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Icon(Icons.person_rounded, color: Colors.white, size: 30.0),
           ),
+          hintStyle: kBodyText,
         ),
       ),
     );
   }
 
-  Widget inputPassword() {
+  Widget _inputPassword() {
     return Container(
-      alignment: Alignment.centerRight,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.white.withOpacity(0.5),
         borderRadius: BorderRadius.circular(16.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black26,
-            blurRadius: 4.0,
-            offset: Offset(0,2)
-          )
-        ]
       ),
-      height: 64.0,
-      child: TextFormField(
+      child: TextField(
         obscureText: true,
-        style: TextStyle(
-          color: primaryText,
-          fontWeight: FontWeight.bold,
-        ),
+        style: kBodyText,
         decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(vertical: 16.0),
           border: InputBorder.none,
-          contentPadding: EdgeInsets.only(top: 14),
-          prefixIcon: Icon(
-            Icons.lock_outline,
-            color: primaryBrand,
-          ),
           hintText: 'Contraseña',
-          hintStyle: TextStyle(
-            color: Colors.black26,
-            fontSize: 16.0
+          prefixIcon: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Icon(Icons.lock_rounded, color: Colors.white, size: 30.0),
           ),
+          hintStyle: kBodyText,
         ),
       ),
     );
@@ -217,27 +175,22 @@ class _LoginPageState extends State<LoginPage> {
     );
   } */
 
-  Widget buttonLogin() {
-    return Container(
-      padding: EdgeInsets.only(top: 32.0, bottom: 24.0),
-      width: double.infinity,
-      child: RaisedButton(
-        elevation: 5.0,
-        onPressed: ()=> Navigator.pushReplacementNamed(context, 'home'),
-        color: Color(0XFF88CA44),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.0)
-        ),
-        child: Text(
-          'INGRESAR',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18.0,
-            fontWeight: FontWeight.w900
-          ),
-          ),
-        padding: EdgeInsets.symmetric(horizontal: 96.0, vertical: 18.0),
+  Widget _buttonLogin() {
+    return FlatButton(
+      color: secondaryBrand,
+      child: Text(
+        'INGRESAR',
+        style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
       ),
+      textColor: Colors.white,
+      // highlightColor: Colors.amber,
+      splashColor: Colors.amber,
+      padding: EdgeInsets.symmetric(vertical: 16.0),
+      minWidth: double.infinity,
+      disabledTextColor: Colors.black,
+      disabledColor: Colors.blueGrey[100],
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+      onPressed: () => Navigator.pushReplacementNamed(context, 'home'),
     );
   }
 

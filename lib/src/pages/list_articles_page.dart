@@ -7,7 +7,7 @@ class ListArticlesPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Lista de articulos',
             style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
-        actions: [IconButton(icon: const Icon(Icons.search), onPressed: () {})],
+        actions: [IconButton(icon: const Icon(Icons.search), onPressed: () {}, splashRadius: 25.0)],
       ),
       body: ListView.builder(
         itemCount: 20,

@@ -1,18 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class ClientsPage extends StatefulWidget {
+class ClientsPage extends StatelessWidget {
 
-  /* String numDocumento;
-  ClientsPage(this.numDocumento, {Key key}) : super(key: key); */
-
-  @override
-  _ClientsPageState createState() => _ClientsPageState();
-}
-
-class _ClientsPageState extends State<ClientsPage> {
-
-  List<Cliente> _clientes = [
+  final List<Cliente> _clientes = [
     Cliente('CONECTA RETAIL S.A.', '20525426778'),
     Cliente('ARTROSCOPICTRAUMA S.A.C.','20538856674'),
     Cliente('ASERCO EB EMPRESA INDIVIDUAL DE RESPONSABILIDAD LIMITADA','20549500553'),
@@ -30,12 +21,12 @@ class _ClientsPageState extends State<ClientsPage> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
-        title: Text('Clientes'),
+        title: Text('Clientes', style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),),
+        centerTitle: true,
         actions: [
-          IconButton(icon: const Icon(Icons.search), onPressed: () {})
+          IconButton(icon: const Icon(Icons.search), onPressed: () {}, splashRadius: 25.0)
         ],
       ),
       body: ListView.builder(
@@ -54,7 +45,6 @@ class _ClientsPageState extends State<ClientsPage> {
           child: SvgPicture.asset('assets/icons/bxs-user-plus.svg', color: Colors.white),
           ),
       );
-  }
   }
 
   Widget _cardClients(context, index, _clientes) {
@@ -84,6 +74,7 @@ class _ClientsPageState extends State<ClientsPage> {
       ),
     );
   }
+}
 
   class Cliente {
     String _nombre;

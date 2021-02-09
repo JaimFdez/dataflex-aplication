@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xff1C83CE),
         fontFamily: "Quicksand",
       ),
-      initialRoute: 'createClient',
+      initialRoute: 'login',
       routes: getApplicationRoutes(),
     );
   }

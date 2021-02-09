@@ -12,7 +12,7 @@ class EmpresasProvider {
         "Bearer 0033187b970906588a3e1589262dbbf1b9c70e89ea57c3f25278db0d4be834d1"
   };
 
-  Future<Map<String, dynamic>> getRespuesta(String nruc) async {
+  Future getRespuesta(String nruc) async {
     final response = await http.get("https://apiperu.dev/api/ruc/$nruc",
         headers: requestHeaders);
 
@@ -20,7 +20,6 @@ class EmpresasProvider {
       String body = utf8.decode(response.bodyBytes);
       final jsonData = json.decode(body);
       print('getRespuesta Ok');
-      // print(jsonData['data']);
       resultado = jsonData['data'];
       return resultado;
     } else {

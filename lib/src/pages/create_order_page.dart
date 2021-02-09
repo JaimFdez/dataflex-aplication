@@ -43,7 +43,8 @@ class _CreateOrderPageState extends State<CreateOrderPage> with SingleTickerProv
       actions: [
         IconButton(
             icon: Icon(Icons.check, size: 24),
-            onPressed: () {}
+            onPressed: () {},
+            splashRadius: 25.0,
         ),
       ],
       title: Text(
@@ -72,7 +73,7 @@ class _CreateOrderPageState extends State<CreateOrderPage> with SingleTickerProv
     return TabBar(
       tabs: <Tab>[
         Tab(child: Icon(Icons.person),),
-        Tab(child: Text('Pedidos'),),
+        Tab(child: Text('Pedidos', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),),),
       ],
       controller: _controller,
     );

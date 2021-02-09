@@ -1,3 +1,4 @@
+// import 'package:dataflex_erp/models/empresa_model.dart';
 import 'package:flutter/material.dart';
 import 'package:dataflex_erp/src/providers/empresas_provider.dart';
 
@@ -7,7 +8,6 @@ class CreateClientsPage extends StatefulWidget {
 }
 
 class _CreateClientsPageState extends State<CreateClientsPage> {
-
   EmpresasProvider _empresasProvider = new EmpresasProvider();
 
   String documentValue;
@@ -50,14 +50,12 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Crear nuevo cliente'),
+        title: Text('Crear nuevo cliente', style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),),
+        centerTitle: true,
         actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.save,
-              color: Colors.white,
-            ),
-            onPressed: () {},
+          IconButton(icon: const Icon(Icons.save, color: Colors.white),
+            onPressed: () => Navigator.pushNamed(context, 'clients'),
+            splashRadius: 25.0,
           )
         ],
       ),
@@ -134,7 +132,6 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         value: doc,
       ));
     });
-
     return listaDocument;
   }
 
@@ -143,13 +140,16 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
       padding: EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black38, width: 1),
-          borderRadius: BorderRadius.circular(16.0)),
+          borderRadius: BorderRadius.circular(16.0)
+          ),
       child: DropdownButton(
-        icon: Icon(Icons.keyboard_arrow_down),
-        iconSize: 24,
+        /* icon: Icon(Icons.keyboard_arrow_down),
+        iconSize: 24, */
+        underline: Container(),
         isExpanded: true,
         style: TextStyle(
           color: Colors.black87,
+          fontWeight: FontWeight.bold,
           fontSize: 16.0,
         ),
         value: _documentoSelec,
@@ -164,13 +164,10 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   }
 
   Widget _documentTextForm() {
-    /* _empresasProvider.getRespuesta('20100070970').then((resultado) {
-      print('_lista');
-      print(resultado);
-    }); */
 
     return TextFormField(
       controller: documentController,
+      style: TextStyle(fontWeight: FontWeight.bold),
       keyboardType: TextInputType.number,
       decoration: InputDecoration(
         suffixIcon: IconButton(
@@ -191,7 +188,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         ),
         hintText: 'Ingrese número de documento',
       ),
-      onSaved: (value) {
+      /* onSaved: (value) {
         documentValue = value;
       },
       validator: (value) {
@@ -199,7 +196,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
           return 'LLene este campo';
         }
         return null;
-      },
+      }, */
     );
   }
 
@@ -207,6 +204,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
     return TextFormField(
       controller: razonSocialController
         ..text = cliente != null ? cliente['nombre_o_razon_social'] : '',
+        style: TextStyle(fontWeight: FontWeight.bold),
       keyboardType: TextInputType.name,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
@@ -232,6 +230,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   Widget _nombreComercialTextForm() {
     return TextFormField(
       controller: nombreComercialController,
+      style: TextStyle(fontWeight: FontWeight.bold),
       keyboardType: TextInputType.name,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
@@ -257,12 +256,13 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   Widget _apellidoPaternoTextForm() {
     return TextFormField(
       controller: apellidoPatController,
+      style: TextStyle(fontWeight: FontWeight.bold),
       keyboardType: TextInputType.name,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
         labelText: 'Apellido paterno',
         labelStyle: TextStyle(
-          fontWeight: FontWeight.bold,
+          // fontWeight: FontWeight.bold,
           fontSize: 16.0,
         ),
         hintText: 'Ingrese apellido paterno',
@@ -282,6 +282,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   Widget _apellidoMaternoTextForm() {
     return TextFormField(
       controller: apellidoMatController,
+      style: TextStyle(fontWeight: FontWeight.bold),
       keyboardType: TextInputType.name,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
@@ -307,6 +308,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   Widget _nombresTextForm() {
     return TextFormField(
       controller: nombresController,
+      style: TextStyle(fontWeight: FontWeight.bold),
       keyboardType: TextInputType.name,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
@@ -333,6 +335,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
     return TextFormField(
       controller: direccionController
         ..text = cliente != null ? cliente['direccion_completa'] : '',
+      style: TextStyle(fontWeight: FontWeight.bold),
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
         labelText: 'Dirección',
@@ -396,11 +399,11 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
           border: Border.all(color: Colors.black38, width: 1),
           borderRadius: BorderRadius.circular(16.0)),
       child: DropdownButton(
-        icon: Icon(Icons.keyboard_arrow_down),
-        iconSize: 24,
+        underline: Container(),
         isExpanded: true,
         style: TextStyle(
           color: Colors.black87,
+          fontWeight: FontWeight.bold,
           fontSize: 16.0,
         ),
         value: _paisSelec,
@@ -434,11 +437,11 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
           border: Border.all(color: Colors.black38, width: 1),
           borderRadius: BorderRadius.circular(16.0)),
       child: DropdownButton(
-        icon: Icon(Icons.keyboard_arrow_down),
-        iconSize: 24,
+        underline: Container(),
         isExpanded: true,
         style: TextStyle(
           color: Colors.black87,
+          fontWeight: FontWeight.bold,
           fontSize: 16.0,
         ),
         value: _departSelec,
@@ -472,11 +475,11 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
           border: Border.all(color: Colors.black38, width: 1),
           borderRadius: BorderRadius.circular(16.0)),
       child: DropdownButton(
-        icon: Icon(Icons.keyboard_arrow_down),
-        iconSize: 24,
+        underline: Container(),
         isExpanded: true,
         style: TextStyle(
           color: Colors.black87,
+          fontWeight: FontWeight.bold,
           fontSize: 16.0,
         ),
         value: _provinciaSelec,
@@ -510,11 +513,11 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
           border: Border.all(color: Colors.black38, width: 1),
           borderRadius: BorderRadius.circular(16.0)),
       child: DropdownButton(
-        icon: Icon(Icons.keyboard_arrow_down),
-        iconSize: 24,
+        underline: Container(),
         isExpanded: true,
         style: TextStyle(
           color: Colors.black87,
+          fontWeight: FontWeight.bold,
           fontSize: 16.0,
         ),
         value: _distritoSelec,
@@ -548,11 +551,11 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
           border: Border.all(color: Colors.black38, width: 1),
           borderRadius: BorderRadius.circular(16.0)),
       child: DropdownButton(
-        icon: Icon(Icons.keyboard_arrow_down),
-        iconSize: 24,
+        underline: Container(),
         isExpanded: true,
         style: TextStyle(
           color: Colors.black87,
+          fontWeight: FontWeight.bold,
           fontSize: 16.0,
         ),
         value: _canalSelec,
@@ -586,11 +589,11 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
           border: Border.all(color: Colors.black38, width: 1),
           borderRadius: BorderRadius.circular(16.0)),
       child: DropdownButton(
-        icon: Icon(Icons.keyboard_arrow_down),
-        iconSize: 24,
+        underline: Container(),
         isExpanded: true,
         style: TextStyle(
           color: Colors.black87,
+          fontWeight: FontWeight.bold,
           fontSize: 16.0,
         ),
         value: _giroSelec,

@@ -59,12 +59,9 @@ class _OnvoiceListPageState extends State<OnvoiceListPage>{
   Widget _appbar() {
     return AppBar(
         actions: [
-        IconButton(icon: Icon(Icons.search), onPressed: (){}, splashRadius: 20.0,),
+        IconButton(icon: Icon(Icons.search), onPressed: (){}, splashRadius: 25.0,),
       ],
-      title: Text(
-        "Pedidos",
-        style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-      ),
+      title: Text("Pedidos", style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
       centerTitle: true,
     );
   }
@@ -109,7 +106,7 @@ class _OnvoiceListPageState extends State<OnvoiceListPage>{
 
   Widget _fab() {
     return Container(
-      margin: EdgeInsets.only(bottom: 24.0),
+      margin: EdgeInsets.only(bottom: 8.0),
       child: FloatingActionButton.extended(
           // tooltip: 'Comprar podructos',
           label: const Text('NUEVO PEDIDO', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0)),
