@@ -27,13 +27,12 @@ class _OrderDisplayWidgetState extends State<OrderDisplayWidget> {
       decoration: InputDecoration(
         labelText: tipo,
         suffixIcon: Container(
-          
           child: IconButton(
             icon: Icon(Icons.search),
             onPressed: (){}),
         )
         /*border: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: BorderRadius.all(Radius.circular(16.0)),
         ),*/
       ),
     );
@@ -94,7 +93,7 @@ class _OrderDisplayWidgetState extends State<OrderDisplayWidget> {
   }
 
   List<DropdownMenuItem<String>> getMonedaDropdown() {
-    List<DropdownMenuItem<String>> listaMoneda = new List();
+    List<DropdownMenuItem<String>> listaMoneda = [ ];
     _tipoMoneda.forEach((mon) {
       listaMoneda.add(DropdownMenuItem(
         child: Text(mon),
@@ -105,11 +104,9 @@ class _OrderDisplayWidgetState extends State<OrderDisplayWidget> {
   } 
 
   Widget _monedaDropdown() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Moneda'),
-        Row(
+    return ListTile(
+      title: Text('Moneda', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0)),
+      subtitle: Row(
           children: [
             Icon(Icons.monetization_on),
             SizedBox(width: 24.0,),
@@ -123,13 +120,12 @@ class _OrderDisplayWidgetState extends State<OrderDisplayWidget> {
           }
           ),
           ],
-        )
-      ],
+        ),
     );
   }
 
   List<DropdownMenuItem<String>> getCondicionPagoDropdown() {
-    List<DropdownMenuItem<String>> listaCondicion = new List();
+    List<DropdownMenuItem<String>> listaCondicion = [ ];
     _condicionPago.forEach((pago) {
       listaCondicion.add(DropdownMenuItem(
         child: Text(pago),
@@ -140,11 +136,9 @@ class _OrderDisplayWidgetState extends State<OrderDisplayWidget> {
   } 
 
   Widget _condicionPagoDropdown() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Condición de pago'),
-        Row(
+    return ListTile(
+      title: Text('Condición de pago', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0)),
+      subtitle: Row(
           children: [
             Icon(Icons.money),
             SizedBox(width: 24.0,),
@@ -158,13 +152,12 @@ class _OrderDisplayWidgetState extends State<OrderDisplayWidget> {
           }
           ),
           ],
-        )
-      ],
+        ),
     );
   }
 
   List<DropdownMenuItem<String>> getMedioPagoDropdown() {
-    List<DropdownMenuItem<String>> listaMedio = new List();
+    List<DropdownMenuItem<String>> listaMedio = [ ];
     _medioPago.forEach((medio) {
       listaMedio.add(DropdownMenuItem(
         child: Text(medio),
@@ -175,11 +168,9 @@ class _OrderDisplayWidgetState extends State<OrderDisplayWidget> {
   } 
 
   Widget _medioPagoDropdown() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Medio de pago'),
-        Row(
+    return ListTile(
+      title: Text('Medio de pago', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0)),
+      subtitle: Row(
           children: [
             Icon(Icons.archive),
             SizedBox(width: 24.0,),
@@ -193,8 +184,7 @@ class _OrderDisplayWidgetState extends State<OrderDisplayWidget> {
           }
           ),
           ],
-        )
-      ],
+        ),
     );
   }
 }

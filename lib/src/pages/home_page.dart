@@ -1,8 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:dataflex_erp/src/pages/sales_page.dart';
 
-class HomePage extends StatelessWidget {
-  final _colorBotonesRedondeados = Color(0XFFF2F2F2);
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _selectDrawerItem = 0;
+  _getDrawerItemWidget(int pos){
+    switch(pos){
+      case 0: return SalesPage();
+    }
+  }
+  _onSelectItem(int pos){
+    Navigator.of(context).pop();
+    setState(() {
+      _selectDrawerItem = pos;    
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,21 +27,32 @@ class HomePage extends StatelessWidget {
         title: Text('Ventas', style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),),
         centerTitle: true,
       ),
-      drawer: Drawer(
+      drawer: _menuDrawer(),
+      body: _getDrawerItemWidget(_selectDrawerItem),
+      // body: _botonesRedondeados(context),
+    );
+  }
+
+  Widget _menuDrawer() {
+    return Drawer(
         child: ListView(
+          padding: EdgeInsets.zero,
           children: [
             UserAccountsDrawerHeader(
-              accountName: Text('Christian'), 
-              accountEmail: Text('christian6@gmail.com'),
+              accountName: Text('Christian', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)), 
+              accountEmail: Text('christian6@gmail.com', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
               currentAccountPicture: CircleAvatar(
-              backgroundColor: Colors.green,
-              child: Text('C', style: TextStyle(fontSize: 40.0)),  
+              backgroundColor: Colors.black,
+              child: Text('C', style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold)),  
               ),
-              ),
+            ),
             ListTile(
-              title: Text('Ventas', style: TextStyle(fontWeight: FontWeight.bold),),
+              title: Text('Ventas', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),),
               leading: Icon(Icons.camera_alt),
-              onTap: (){},
+              selected: (0 == _selectDrawerItem),
+              onTap: (){
+                _onSelectItem(0);
+              },
             ),
             Divider(),
             ListTile(
@@ -34,44 +62,6 @@ class HomePage extends StatelessWidget {
             )
           ],
         ),
-      ),
-      body: _botonesRedondeados(context),
-    );
+      );
   }
-
-  Widget _botonesRedondeados(BuildContext context) {
-    return Table(
-      children: [
-        TableRow(
-          children: [
-            _crearBotonRedondeado(context, 'Pedidos', 'assets/icons/notas.svg', 'onvoice'),
-            _crearBotonRedondeado(context, 'Clientes', 'assets/icons/clientela.svg', 'clients'),
-          ]
-        ),
-      ],
-    );
-  }
-
-  Widget _crearBotonRedondeado(BuildContext context, String texto,String icono, String route) {
-    final _estiloTextoBoton = TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold);
-    return Container(
-      margin: EdgeInsets.all(16.0),
-      child: RawMaterialButton(
-        fillColor: _colorBotonesRedondeados,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 48.0, horizontal: 16.0),
-          child: Column(
-            children: [
-              SvgPicture.asset(icono, height: 60),
-              SizedBox(height: 16.0),
-              Text(texto, style: _estiloTextoBoton)
-            ],
-          ),
-        ),
-        onPressed: () => Navigator.pushNamed(context, route),
-      ),
-    );
-  }
-
 }

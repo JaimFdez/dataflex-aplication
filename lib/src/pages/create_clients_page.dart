@@ -124,8 +124,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   }
 
   List<DropdownMenuItem<String>> getDocumentDropdown() {
-    List<DropdownMenuItem<String>> listaDocument = new List();
-
+    List<DropdownMenuItem<String>> listaDocument = [ ];
     _documento.forEach((doc) {
       listaDocument.add(DropdownMenuItem(
         child: Text(doc),
@@ -380,7 +379,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   }
 
   List<DropdownMenuItem<String>> getPaisesDropdown() {
-    List<DropdownMenuItem<String>> listaPaises = new List();
+    List<DropdownMenuItem<String>> listaPaises = [ ];
 
     _paises.forEach((pais) {
       listaPaises.add(DropdownMenuItem(
@@ -418,7 +417,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   }
 
   List<DropdownMenuItem<String>> getDepartamentoDropdown() {
-    List<DropdownMenuItem<String>> listaDepartamentos = new List();
+    List<DropdownMenuItem<String>> listaDepartamentos = [ ];
 
     _departamentos.forEach((depart) {
       listaDepartamentos.add(DropdownMenuItem(
@@ -456,7 +455,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   }
 
   List<DropdownMenuItem<String>> getProvinciasDropdown() {
-    List<DropdownMenuItem<String>> listaProvincias = new List();
+    List<DropdownMenuItem<String>> listaProvincias = [ ];
 
     _provincias.forEach((provin) {
       listaProvincias.add(DropdownMenuItem(
@@ -494,7 +493,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   }
 
   List<DropdownMenuItem<String>> getDistritosDropdown() {
-    List<DropdownMenuItem<String>> listaDistritos = new List();
+    List<DropdownMenuItem<String>> listaDistritos = [ ];
 
     _distritos.forEach((distri) {
       listaDistritos.add(DropdownMenuItem(
@@ -532,7 +531,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   }
 
   List<DropdownMenuItem<String>> getCanalDropdown() {
-    List<DropdownMenuItem<String>> listaCanal = new List();
+    List<DropdownMenuItem<String>> listaCanal = [ ];
 
     _tipoCanal.forEach((can) {
       listaCanal.add(DropdownMenuItem(
@@ -570,7 +569,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   }
 
   List<DropdownMenuItem<String>> getGiroDropdown() {
-    List<DropdownMenuItem<String>> listaGiro = new List();
+    List<DropdownMenuItem<String>> listaGiro = [ ];
 
     _giroNegocio.forEach((giro) {
       listaGiro.add(DropdownMenuItem(
