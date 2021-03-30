@@ -16,61 +16,72 @@ class _LoginPageState extends State<LoginPage> {
   final _kBodyText = TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.white);
 
   _submit() {
-    if (_ruc.isEmpty) {
-      print('_ruc.isEmpty');
-    } else if (_usuario.isEmpty) {
-      print('_usuario.isEmpty');
+    final bool isValid = _formKey.currentState.validate();
+    if(isValid){
+      Navigator.pushReplacementNamed(context, 'home');
     }
   }
 
-  String _validateRuc() {
+  String _validateRuc(String ruc) {
+     _ruc = ruc;
     if (_ruc.isNotEmpty && _ruc.length == 11) {
       return null;
     }
-    return "Invalid ruc";
+    return "RUC inválido";
   }
 
-  String _validateUsuario() {
+  String _validateUsuario(String usuario) {
+    _usuario = usuario;
     if (_usuario.isNotEmpty) {
       return null;
     }
-    return "Invalid usuario";
+    return "Usuario inválido";
   }
 
-  String _validatePassword() {
+  String _validatePassword(String password) {
+    _password = password;
     if (_password.isNotEmpty && _password.length >= 4) {
       return null;
     }
-    return "Invalid password";
+    return "Contraseña inválida";
   }
 
   @override
   Widget build(BuildContext context) {
-    final _screenSize = MediaQuery.of(context).size;
+    final MediaQueryData _media = MediaQuery.of(context);
+    final Size _screenSize = _media.size;
+    final EdgeInsets _padding = _media.padding;
 
     return Scaffold(
       backgroundColor: colorFondo,
       body: SafeArea(
-        child: Center(
-          child: Container(
-            color: Colors.red,
-            width: _screenSize.width * 0.75,
-            height: double.infinity,
-            padding: EdgeInsets.symmetric(vertical: 20.0),
-            child: Form(
-              key: _formKey,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  _logo(),
-                  _inputRuc(),
-                  SizedBox(height: 20.0),
-                  _inputUsuario(),
-                  SizedBox(height: 20.0),
-                  _inputPassword(),
-                  SizedBox(height: 32.0),
-                  _buttonLogin()
-                ],
+        child: SingleChildScrollView(
+          child: Center(
+            child: Container(
+              height: _screenSize.height-_padding.top-_padding.bottom,
+              width: _screenSize.width * 0.75,
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _logo(),
+                    Container(
+                      child: Column(
+                        children: [
+                          _inputRuc(),
+                    SizedBox(height: 20),
+                    _inputUsuario(),
+                    SizedBox(height: 20),
+                    _inputPassword(),
+                    SizedBox(height: 30),
+                    _buttonLogin(),
+                        ],
+                      ),
+                    ),
+                    
+                  ],
+                ),
               ),
             ),
           ),
@@ -79,16 +90,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  /* Widget _logo() {
-    final _screenSize = MediaQuery.of(context).size;
-    return Container(
-      height: _screenSize.height * 0.53,
-      child: Image(
-        image: AssetImage('assets/images/logo.png'),
-      ),
-    );
-  } */
-
   Widget _logo(){
     return Image(
       image: AssetImage('assets/images/logo.png'),
@@ -96,89 +97,95 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _inputRuc() {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.5),
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: TextFormField(
+    return TextFormField(
         keyboardType: TextInputType.number,
         textInputAction: TextInputAction.next,
-        onChanged: (String text) {
-          _ruc = text;
-        },
+        validator: _validateRuc,
         style: _kBodyText,
         decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.white.withOpacity(0.5),
           contentPadding: const EdgeInsets.symmetric(vertical: 16.0),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white.withOpacity(0.5)),
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.white.withOpacity(0.5)),
+            borderRadius: BorderRadius.circular(8.0),
+          ),
           border: InputBorder.none,
           hintText: 'Número de Ruc',
           prefixIcon: Container(
             width: 70.0,
             height: 40.0,
             padding: EdgeInsets.all(10.0),
-            child: SvgPicture.asset('assets/icons/ruc.svg', color: Colors.white),
+            child: SvgPicture.asset('assets/icons/business-and-trade.svg', color: Colors.white),
           ),
           hintStyle: _kBodyText,
         ),
-      ),
-    );
+      );
   }
 
   Widget _inputUsuario() {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.5),
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: TextFormField(
+    return TextFormField(
         keyboardType: TextInputType.text,
         textInputAction: TextInputAction.next,
-        onChanged: (String text) {
-          _usuario = text;
-        },
+        validator: _validateUsuario,
         style: _kBodyText,
         decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.white.withOpacity(0.5),
           contentPadding: const EdgeInsets.symmetric(vertical: 16.0),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white.withOpacity(0.5)),
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.white.withOpacity(0.5)),
+            borderRadius: BorderRadius.circular(8.0),
+          ),
           border: InputBorder.none,
           hintText: 'Usuario',
           prefixIcon: Container(
             width: 70.0,
             height: 40.0,
             padding: EdgeInsets.all(10.0),
-            child: SvgPicture.asset('assets/icons/user.svg', color: Colors.white),
+            child: SvgPicture.asset('assets/icons/man-user.svg', color: Colors.white),
           ),
           hintStyle: _kBodyText,
         ),
-      ),
-    );
+      );
   }
 
   Widget _inputPassword() {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.5),
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: TextFormField(
+    return TextFormField(
         obscureText: true,
         style: _kBodyText,
-        onChanged: (String text) {
-          _password = text;
-        },
+        validator: _validatePassword,
         decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.white.withOpacity(0.5),
           contentPadding: const EdgeInsets.symmetric(vertical: 16.0),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white.withOpacity(0.5)),
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.white.withOpacity(0.5)),
+            borderRadius: BorderRadius.circular(8.0),
+          ),
           border: InputBorder.none,
           hintText: 'Contraseña',
           prefixIcon: Container(
             width: 70.0,
             height: 40.0,
             padding: EdgeInsets.all(10.0),
-            child: SvgPicture.asset('assets/icons/padlock.svg', color: Colors.white),
+            child: SvgPicture.asset('assets/icons/locked-padlock.svg', color: Colors.white),
           ),
           hintStyle: _kBodyText,
         ),
-      ),
-    );
+      );
   }
 
   Widget _buttonLogin() {
@@ -189,7 +196,7 @@ class _LoginPageState extends State<LoginPage> {
         onPressed: () {
           _submit();
           FocusScope.of(context).unfocus();
-          Navigator.pushReplacementNamed(context, 'home');
+          // Navigator.pushReplacementNamed(context, 'home');
         },
         style: ElevatedButton.styleFrom(
           primary: secondaryBrand,
