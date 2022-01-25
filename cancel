@@ -1,0 +1,160 @@
+[33mcommit cc6f09d8218eb913c088ed7d49f505dbc9c5e984[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Jaime Fdez <christ.bossing@gmail.com>
+Date:   Wed Mar 31 18:40:00 2021 -0500
+
+    ui del login ok
+
+[33mcommit eeafdc27c59ce5cce84c1b97a7fe003585fec9bc[m
+Author: Jaime Fdez <christ.bossing@gmail.com>
+Date:   Tue Mar 30 18:16:36 2021 -0500
+
+    arreglando la pantalla de login
+
+[33mcommit 6d7f5c40fcad455d4c75501812e6886045f2cb8c[m
+Author: Jaime Fdez <christ.bossing@gmail.com>
+Date:   Tue Mar 23 15:53:28 2021 -0500
+
+    actulizando archivos
+
+[33mcommit a162c9e469fa8fda3d4be24dc77ebfcb7eeb103b[m
+Author: Jaime Fdez <christ.bossing@gmail.com>
+Date:   Tue Mar 23 15:44:48 2021 -0500
+
+    copia de seguridad
+
+[33mcommit d617bd2cf5aca4d79fdacd1334ce5a8fa13fb633[m
+Author: Jaime Fdez <christ.bossing@gmail.com>
+Date:   Tue Feb 9 10:46:16 2021 -0500
+
+    mejorando pantalla login y home
+
+[33mcommit e61c553e1e10fe70e5724c10c7a5f787a4d7ab5c[m
+Author: Jaime Fdez <christ.bossing@gmail.com>
+Date:   Thu Jan 28 10:49:44 2021 -0500
+
+    acomodando el codigo de createclientspage
+
+[33mcommit aeff1f806249f0dd47b39d94b95b6abda418a1e1[m
+Merge: 5f06e80 9406ea0
+Author: Jaime Fdez <christ.bossing@gmail.com>
+Date:   Thu Jan 28 10:29:04 2021 -0500
+
+    Merge branch 'revision' into main
+
+[33mcommit 5f06e80619881a810bdcc3370ff8dbde58622167[m
+Author: Jaime Fdez <christ.bossing@gmail.com>
+Date:   Wed Jan 27 13:04:02 2021 -0500
+
+    cambio en el manejo de routes
+
+[33mcommit 9406ea02dc6ae264d70622c06e80c5a4c4041908[m[33m ([m[1;31morigin/revision[m[33m)[m
+Author: Claus Chocho <clauschochoe@gmail.com>
+Date:   Tue Jan 26 18:11:48 2021 -0500
+
+    fix textform load from api
+
+[33mcommit a74aa0b7fa27c31d7f78cca0324daaf7bc737c2f[m
+Merge: e522e71 6a3382a
+Author: Jaime Fdez <christ.bossing@gmail.com>
+Date:   Tue Jan 26 16:57:26 2021 -0500
+
+    cambios en la pantalla onvoice
+
+[33mcommit e522e713d875bdbe2569f8ee4474ea4a972762d1[m
+Author: Jaime Fdez <christ.bossing@gmail.com>
+Date:   Tue Dec 29 12:40:56 2020 -0500
+
+    login responsive
+
+[33mcommit 6a3382aacc605c20816eadf60983dd5b9ec20a69[m
+Merge: 2fcfdb8 77fcf64
+Author: Edgar SV <edgar4ntonio1999@gmail.com>
+Date:   Wed Dec 23 17:45:22 2020 -0600
+
+    solucionando conflictos
+
+[33mcommit 2fcfdb8b2f915a68dcb5b72dcaa9b677e55a1aae[m
+Author: Edgar SV <edgar4ntonio1999@gmail.com>
+Date:   Tue Dec 22 14:48:45 2020 -0600
+
+    agregando archivo faltante
+
+[33mcommit 0b726be9b0ef33b1f8ff6a2d024020996031ebd6[m
+Author: Edgar SV <edgar4ntonio1999@gmail.com>
+Date:   Tue Dec 22 14:47:15 2020 -0600
+
+    Agregando redisenos de pantalla y utilidad de boton
+
+[33mcommit 77fcf64d0266fad42634340a6ddb3aa7b0994ff6[m
+Author: Jaime Fdez <christ.bossing@gmail.com>
+Date:   Wed Dec 9 15:39:27 2020 -0500
+
+    se agrega pantalla clientes
+
+[33mcommit 6c12b185162f86d572d7fabf2cca3075fcaa365f[m
+Merge: f5ea43f 2e2d938
+Author: Edgar SV <edgar4ntonio1999@gmail.com>
+Date:   Thu Dec 3 16:43:01 2020 -0600
+
+    agregado cambios minimos
+
+[33mcommit f5ea43ffb916679d6e359b147007cbe1eb00c2bb[m
+Author: Edgar SV <edgar4ntonio1999@gmail.com>
+Date:   Thu Dec 3 16:39:19 2020 -0600
+
+    agregado cambios minimos
+
+[33mcommit 2e2d938b457ef2748b7ed3afb813744e1556cd9d[m
+Author: Jaime Fdez <christ.bossing@gmail.com>
+Date:   Mon Nov 30 18:27:36 2020 -0500
+
+    pantalla principal terminada se incluyeron algunos paquetes para usar iconos en el pubspec
+
+[33mcommit 908b3b6ef6f958843974b0ff1b8be5de18a3ec5f[m
+Author: Jaime Fdez <christ.bossing@gmail.com>
+Date:   Thu Nov 19 18:26:56 2020 -0500
+
+    cambios minimos
+
+[33mcommit 1948ae373283d7453c649bc320976c14c797ac2a[m
+Merge: b53c9ec 77286dc
+Author: Edgar SV <edgar4ntonio1999@gmail.com>
+Date:   Thu Nov 19 16:45:05 2020 -0600
+
+    Fusionando ambas partes del proyecto y solucionando conflictos
+
+[33mcommit 77286dc28d3b6ed605ec7f83d730f4f1614b2cc0[m
+Author: Jaime Fdez <christ.bossing@gmail.com>
+Date:   Thu Nov 19 17:14:59 2020 -0500
+
+    algunas pantallas nuevas
+
+[33mcommit b53c9ece282b202140a5906fec7a95ea3c033ed9[m
+Author: Edgar SV <edgar4ntonio1999@gmail.com>
+Date:   Thu Nov 19 14:45:27 2020 -0600
+
+    agrengando las pantallas factura, lista de productos, lista de facturas, todo completo
+
+[33mcommit 1b466f02daa09b2611f944e29ff17f70e3e67f82[m
+Author: Edgar SV <edgar4ntonio1999@gmail.com>
+Date:   Thu Nov 19 14:43:52 2020 -0600
+
+    agrengando las pantallas factura, lista de productos, lista de facturas
+
+[33mcommit 97c4ddb41645cdc5da96c092f4bf54baf2d43a27[m
+Author: Edgar SV <edgar4ntonio1999@gmail.com>
+Date:   Mon Nov 9 16:52:30 2020 -0600
+
+    arreglando las carpetas y contenido del proyecto
+
+[33mcommit 7e7388c1b9bf26b8ebfdcf965d8f316dcd7042e9[m
+Author: Edgar SV <edgar4ntonio1999@gmail.com>
+Date:   Mon Nov 9 16:07:11 2020 -0600
+
+    guardandos cambios del commit al pubspec.lock que solicitaba
+
+[33mcommit 10ae3e8783e42375e854d06a2e3cebe827cd2c8b[m
+Author: Jaime Fdez <christ.bossing@gmail.com>
+Date:   Mon Nov 9 15:53:50 2020 -0500
+
+    Primer commit del proyecto

@@ -37,8 +37,8 @@ class MyApp extends StatelessWidget {
         title: 'Dataflex ERP',
         theme: ThemeData(
           primaryColor: Color(0xff1C83CE),
-          accentColor: Color(0xff1C83CE),
-          fontFamily: "Quicksand",
+          fontFamily: "Quicksand", 
+          colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Color(0xff1C83CE)),
         ),
         initialRoute: 'login',
         routes: getApplicationRoutes(),
