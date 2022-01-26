@@ -75,7 +75,7 @@ class _OrderDisplayWidgetState extends State<OrderDisplayWidget> {
 
   _selectDate(BuildContext context) async {
 
-    DateTime picked = await showDatePicker(
+    DateTime? picked = await showDatePicker(
       context: context,
       initialDate: new DateTime.now(),
       firstDate: new DateTime(2021),
@@ -115,7 +115,7 @@ class _OrderDisplayWidgetState extends State<OrderDisplayWidget> {
               items: getMonedaDropdown(),
               onChanged: (opt) {
                 setState(() {
-                  _monedaSelec = opt;
+                  _monedaSelec = opt.toString();
                 });
           }
           ),
@@ -147,7 +147,7 @@ class _OrderDisplayWidgetState extends State<OrderDisplayWidget> {
               items: getCondicionPagoDropdown(),
               onChanged: (opt) {
                 setState(() {
-                  _condicionSelec = opt;
+                  _condicionSelec = opt.toString();
                 });
           }
           ),
@@ -179,7 +179,7 @@ class _OrderDisplayWidgetState extends State<OrderDisplayWidget> {
               items: getMedioPagoDropdown(),
               onChanged: (opt) {
                 setState(() {
-                  _medioSelec = opt;
+                  _medioSelec = opt.toString();
                 });
           }
           ),

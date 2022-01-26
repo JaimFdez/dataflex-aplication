@@ -6,9 +6,9 @@ const _iconSize = 24.0;
 
 class ButtonFAB extends StatefulWidget {
   ButtonFAB({
-    Key key,
+    Key? key,
     this.expanded = false,
-    this.onTap,
+    required this.onTap,
   }) : super(key: key);
 
 
@@ -25,9 +25,9 @@ class _ButtonFABState extends State<ButtonFAB> {
 
   @override
   void initState(){
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
       setState(() {
-        _maxSize = _keyText.currentContext.size.width + _minSize + _iconSize / 2;
+        _maxSize = _keyText.currentContext!.size!.width + _minSize + _iconSize / 2;
       });
     });
     super.initState();

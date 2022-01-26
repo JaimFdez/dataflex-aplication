@@ -17,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
       fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.white);
 
   _submit() {
-    final bool isValid = _formKey.currentState.validate();
+    final bool isValid = _formKey.currentState!.validate();
     if (isValid) {
       Navigator.pushReplacementNamed(context, 'home');
     }
@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
   String _validateRuc(String ruc) {
     _ruc = ruc;
     if (_ruc.isNotEmpty && _ruc.length == 11) {
-      return null;
+      return '';
     }
     return "RUC inválido";
   }
@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
   String _validateUsuario(String usuario) {
     _usuario = usuario;
     if (_usuario.isNotEmpty) {
-      return null;
+      return '';
     }
     return "Usuario inválido";
   }
@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
   String _validatePassword(String password) {
     _password = password;
     if (_password.isNotEmpty && _password.length >= 4) {
-      return null;
+      return '';
     }
     return "Contraseña inválida";
   }

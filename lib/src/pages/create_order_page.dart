@@ -3,7 +3,7 @@ import 'tabs/order_display.dart';
 import 'package:dataflex_erp/src/pages/tabs/order_diplay2.dart';
 
 class CreateOrderPage extends StatefulWidget {
-  CreateOrderPage({Key key}) : super(key: key);
+  CreateOrderPage({Key? key}) : super(key: key);
 
   @override
   _CreateOrderPageState createState() => _CreateOrderPageState();
@@ -11,7 +11,7 @@ class CreateOrderPage extends StatefulWidget {
 
 class _CreateOrderPageState extends State<CreateOrderPage> with SingleTickerProviderStateMixin {
 
-  TabController _controller;
+  late TabController _controller;
 
   @override
   void initState() { 
@@ -37,7 +37,7 @@ class _CreateOrderPageState extends State<CreateOrderPage> with SingleTickerProv
     );
   }
 
-  Widget _appbar() {
+  PreferredSizeWidget _appbar() {
     return AppBar(
       actions: [
         IconButton(

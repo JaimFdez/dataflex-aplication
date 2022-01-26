@@ -13,7 +13,7 @@ class EmpresasProvider {
   };
 
   Future getRespuesta(String nruc) async {
-    final response = await http.get("https://apiperu.dev/api/ruc/$nruc",
+    final response = await http.get (Uri.parse("https://apiperu.dev/api/ruc/$nruc"),
         headers: requestHeaders);
 
     if (response.statusCode == 200) {
