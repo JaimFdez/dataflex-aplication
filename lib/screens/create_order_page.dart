@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'tabs/order_display.dart';
-import 'package:dataflex_erp/src/pages/tabs/order_diplay2.dart';
+import 'package:dataflex_erp/screens/tabs/order_diplay2.dart';
 
 class CreateOrderPage extends StatefulWidget {
   CreateOrderPage({Key? key}) : super(key: key);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dataflex_erp/src/pages/sales_page.dart';
+import 'package:dataflex_erp/screens/sales_page.dart';
 
 class HomePage extends StatefulWidget {
   @override

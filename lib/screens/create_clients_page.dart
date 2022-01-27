@@ -1,6 +1,6 @@
 // import 'package:dataflex_erp/models/empresa_model.dart';
 import 'package:flutter/material.dart';
-import 'package:dataflex_erp/src/providers/empresas_provider.dart';
+import 'package:dataflex_erp/providers/empresas_provider.dart';
 
 class CreateClientsPage extends StatefulWidget {
   @override
@@ -10,14 +10,14 @@ class CreateClientsPage extends StatefulWidget {
 class _CreateClientsPageState extends State<CreateClientsPage> {
   EmpresasProvider _empresasProvider = new EmpresasProvider();
 
-  String documentValue;
-  String razonSocialValue;
-  String nombreComercialValue;
-  String apellidoPatValue;
-  String apellidoMatValue;
-  String nombresValue;
-  String direccionValue;
-  String referenciaValue;
+  String? documentValue;
+  String? razonSocialValue;
+  String? nombreComercialValue;
+  String? apellidoPatValue;
+  String? apellidoMatValue;
+  String? nombresValue;
+  String? direccionValue;
+  String? referenciaValue;
   final documentController = TextEditingController(text: "");
   final razonSocialController = TextEditingController();
   final nombreComercialController = TextEditingController();
@@ -44,7 +44,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   List<String> _tipoCanal = ['Mayorista', 'Minorista'];
   List<String> _giroNegocio = ['Medicamentos', 'Abarrotes'];
 
-  Map<String, dynamic> cliente;
+  late Map<String, dynamic> cliente;
 
   @override
   Widget build(BuildContext context) {
@@ -155,7 +155,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         items: getDocumentDropdown(),
         onChanged: (opt) {
           setState(() {
-            _documentoSelec = opt;
+            _documentoSelec = opt.toString();
           });
         },
       ),
@@ -202,6 +202,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   Widget _razonSocialTextForm() {
     return TextFormField(
       controller: razonSocialController
+        // ignore: unnecessary_null_comparison
         ..text = cliente != null ? cliente['nombre_o_razon_social'] : '',
         style: TextStyle(fontWeight: FontWeight.bold),
       keyboardType: TextInputType.name,
@@ -218,7 +219,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         razonSocialValue = value;
       },
       validator: (value) {
-        if (value.isEmpty) {
+        if (value!.isEmpty) {
           return 'LLene este campo';
         }
         return null;
@@ -244,7 +245,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         nombreComercialValue = value;
       },
       validator: (value) {
-        if (value.isEmpty) {
+        if (value!.isEmpty) {
           return 'LLene este campo';
         }
         return null;
@@ -270,7 +271,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         apellidoPatValue = value;
       },
       validator: (value) {
-        if (value.isEmpty) {
+        if (value!.isEmpty) {
           return 'LLene este campo';
         }
         return null;
@@ -296,7 +297,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         apellidoMatValue = value;
       },
       validator: (value) {
-        if (value.isEmpty) {
+        if (value!.isEmpty) {
           return 'LLene este campo';
         }
         return null;
@@ -322,7 +323,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         nombresValue = value;
       },
       validator: (value) {
-        if (value.isEmpty) {
+        if (value!.isEmpty) {
           return 'LLene este campo';
         }
         return null;
@@ -333,6 +334,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
   Widget _direccionTextForm() {
     return TextFormField(
       controller: direccionController
+        // ignore: unnecessary_null_comparison
         ..text = cliente != null ? cliente['direccion_completa'] : '',
       style: TextStyle(fontWeight: FontWeight.bold),
       decoration: InputDecoration(
@@ -347,7 +349,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         direccionValue = value;
       },
       validator: (value) {
-        if (value.isEmpty) {
+        if (value!.isEmpty) {
           return 'LLene este campo';
         }
         return null;
@@ -370,7 +372,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         referenciaValue = value;
       },
       validator: (value) {
-        if (value.isEmpty) {
+        if (value!.isEmpty) {
           return 'LLene este campo';
         }
         return null;
@@ -409,7 +411,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         items: getPaisesDropdown(),
         onChanged: (opt) {
           setState(() {
-            _paisSelec = opt;
+            _paisSelec = opt.toString();
           });
         },
       ),
@@ -447,7 +449,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         items: getDepartamentoDropdown(),
         onChanged: (opt) {
           setState(() {
-            _departSelec = opt;
+            _departSelec = opt.toString();
           });
         },
       ),
@@ -485,7 +487,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         items: getProvinciasDropdown(),
         onChanged: (opt) {
           setState(() {
-            _provinciaSelec = opt;
+            _provinciaSelec = opt.toString();
           });
         },
       ),
@@ -523,7 +525,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         items: getDistritosDropdown(),
         onChanged: (opt) {
           setState(() {
-            _distritoSelec = opt;
+            _distritoSelec = opt.toString();
           });
         },
       ),
@@ -561,7 +563,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         items: getCanalDropdown(),
         onChanged: (opt) {
           setState(() {
-            _canalSelec = opt;
+            _canalSelec = opt.toString();
           });
         },
       ),
@@ -599,7 +601,7 @@ class _CreateClientsPageState extends State<CreateClientsPage> {
         items: getGiroDropdown(),
         onChanged: (opt) {
           setState(() {
-            _giroSelec = opt;
+            _giroSelec = opt.toString();
           });
         },
       ),

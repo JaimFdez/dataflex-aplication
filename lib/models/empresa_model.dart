@@ -1,12 +1,12 @@
 class Empresa {
   // String origen;
-  String ruc;
-  String nombreORazonSocial;
-  String estado;
-  String condicion;
-  List<dynamic> ubigeo;
-  String direccion;
-  String direccionCompleta;
+  String? ruc;
+  String? nombreORazonSocial;
+  String? estado;
+  String? condicion;
+  List<dynamic>? ubigeo;
+  String? direccion;
+  String? direccionCompleta;
 
   Empresa({
     // this.origen,

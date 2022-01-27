@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginScreenState extends State<LoginScreen> {
   GlobalKey<FormState> _formKey = GlobalKey();
-  String _ruc = '', _usuario = '', _password = '';
+  // String _ruc = '', _usuario = '', _password = '';
   final primaryBrand = Color(0XFF1C83CE);
   final secondaryBrand = Color(0XFF88CA44);
   final primaryText = Color(0XFF434343);
@@ -21,30 +21,6 @@ class _LoginPageState extends State<LoginPage> {
     if (isValid) {
       Navigator.pushReplacementNamed(context, 'home');
     }
-  }
-
-  String _validateRuc(String ruc) {
-    _ruc = ruc;
-    if (_ruc.isNotEmpty && _ruc.length == 11) {
-      return '';
-    }
-    return "RUC inválido";
-  }
-
-  String _validateUsuario(String usuario) {
-    _usuario = usuario;
-    if (_usuario.isNotEmpty) {
-      return '';
-    }
-    return "Usuario inválido";
-  }
-
-  String _validatePassword(String password) {
-    _password = password;
-    if (_password.isNotEmpty && _password.length >= 4) {
-      return '';
-    }
-    return "Contraseña inválida";
   }
 
   @override
@@ -100,7 +76,10 @@ class _LoginPageState extends State<LoginPage> {
     return TextFormField(
       keyboardType: TextInputType.number,
       textInputAction: TextInputAction.next,
-      validator: _validateRuc,
+      validator: (value){
+        if(value != null && value.length == 11) return null;
+        return 'El RUC debe ser de 11 caracteres';
+      },
       style: _kBodyText,
       decoration: InputDecoration(
         filled: true,
@@ -140,7 +119,10 @@ class _LoginPageState extends State<LoginPage> {
     return TextFormField(
       keyboardType: TextInputType.text,
       textInputAction: TextInputAction.next,
-      validator: _validateUsuario,
+      validator: (value){
+        if(value != null) return null;
+        return 'Usuario no válido';
+      },
       style: _kBodyText,
       decoration: InputDecoration(
         filled: true,
@@ -180,7 +162,10 @@ class _LoginPageState extends State<LoginPage> {
     return TextFormField(
       obscureText: true,
       style: _kBodyText,
-      validator: _validatePassword,
+      validator: (value){
+        if(value != null && value.length >= 4) return null;
+        return 'La contraseña debe ser de 4 caracteres';
+      },
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white.withOpacity(0.5),
